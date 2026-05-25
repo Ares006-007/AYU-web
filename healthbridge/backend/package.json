@@ -1,0 +1,42 @@
+{
+  "name": "healthbridge-api",
+  "version": "1.0.0",
+  "description": "HealthBridge WhatsApp-first healthcare platform API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "worker": "node src/workers/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bull": "^4.12.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "ioredis": "^5.3.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^3.3.7",
+    "pg": "^8.12.0",
+    "razorpay": "^2.9.2",
+    "uuid": "^9.0.1",
+    "winston": "^3.13.0",
+    "zod": "^3.23.8",
+    "axios": "^1.7.2",
+    "@aws-sdk/client-s3": "^3.600.0",
+    "@aws-sdk/s3-request-presigner": "^3.600.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

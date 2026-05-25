@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment / secrets — NEVER commit these
+.env
+*.env.local
+*.env.production
+
+# Build output
+dist/
+build/
+.next/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime / OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Docker volumes (local)
+postgres_data/
+redis_data/
+
+# Coverage
+coverage/
