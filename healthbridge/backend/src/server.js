@@ -8,8 +8,14 @@ const PORT = process.env.PORT || 3001;
 
 async function startServer() {
   try {
-    await connectDB();
-    await connectRedis();
+    // Attempt connections, letting fallbacks activate on error
+    await connectDB().catch((err) => {
+      logger.warn(`PostgreSQL offline. Starting in MOCK DB Mode. (${err.message})`);
+    });
+
+    await connectRedis().catch((err) => {
+      logger.warn(`Redis offline. Starting in MOCK Redis Mode. (${err.message})`);
+    });
 
     app.listen(PORT, () => {
       logger.info(`HealthBridge API running on port ${PORT} [${process.env.NODE_ENV}]`);

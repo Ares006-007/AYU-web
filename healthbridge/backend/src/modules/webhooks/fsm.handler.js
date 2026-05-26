@@ -2,6 +2,8 @@ const { getSession, setSession, clearSession } = require('../../db/redis');
 const { sendText } = require('./whatsapp.client');
 const registrationFlow = require('./flows/registration.flow');
 const bookingFlow = require('./flows/booking.flow');
+const menuFlow = require('./flows/menu.flow');
+const { normalizeIndianPhone } = require('../../utils/helpers');
 const logger = require('../../utils/logger');
 
 // FSM States
@@ -24,6 +26,15 @@ const STATES = {
   BOOK_DATE: 'BOOK_DATE',
   BOOK_COMPLAINT: 'BOOK_COMPLAINT',
   BOOK_CONFIRM: 'BOOK_CONFIRM',
+  // Recovery states
+  RECOVERY_NAME: 'RECOVERY_NAME',
+  RECOVERY_DOB: 'RECOVERY_DOB',
+  RECOVERY_AADHAAR: 'RECOVERY_AADHAAR',
+  // Menu hub states
+  MAIN_MENU: 'MAIN_MENU',
+  MY_BOOKINGS: 'MY_BOOKINGS',
+  MY_REPORTS: 'MY_REPORTS',
+  MY_HEALTH_ID: 'MY_HEALTH_ID',
 };
 
 /**
@@ -94,6 +105,13 @@ async function handleMessage(ctx) {
       newSession = await registrationFlow.handleReturning(ctx, session, input, STATES);
       break;
 
+    // ── Recovery flow ──
+    case STATES.RECOVERY_NAME:
+    case STATES.RECOVERY_DOB:
+    case STATES.RECOVERY_AADHAAR:
+      newSession = await registrationFlow.handleRecovery(ctx, session, input, STATES);
+      break;
+
     // ── Booking flow ──
     case STATES.BOOK_DEPT:
     case STATES.BOOK_DOCTOR:
@@ -101,6 +119,14 @@ async function handleMessage(ctx) {
     case STATES.BOOK_COMPLAINT:
     case STATES.BOOK_CONFIRM:
       newSession = await bookingFlow.handle(ctx, session, input, STATES);
+      break;
+
+    // ── Menu hub flow ──
+    case STATES.MAIN_MENU:
+    case STATES.MY_BOOKINGS:
+    case STATES.MY_REPORTS:
+    case STATES.MY_HEALTH_ID:
+      newSession = await menuFlow.handle(ctx, session, input, STATES);
       break;
 
     default:
@@ -117,17 +143,50 @@ async function handleMessage(ctx) {
 
 async function handleIdle(ctx, session) {
   const { from, phoneNumberId, accessToken } = ctx;
+  const { query } = require('../../db/pool');
 
   // Fetch hospital name for greeting (can cache this)
-  const { query } = require('../../db/pool');
   const hosp = await query('SELECT name FROM hospitals WHERE id = $1', [session.hospitalId]);
   const hospName = hosp.rows[0]?.name || 'our clinic';
+
+  // Check if phone number is already registered in patient_identities
+  const phone = normalizeIndianPhone(from);
+  try {
+    const registered = await query(
+      `SELECT p.id, p.health_id, p.full_name
+       FROM patients p
+       JOIN patient_identities pi ON pi.patient_id = p.id
+       WHERE pi.phone_number = $1 AND p.is_active = TRUE
+       LIMIT 1`,
+      [phone]
+    );
+
+    if (registered.rows.length) {
+      const patient = registered.rows[0];
+      const firstName = patient.full_name.split(' ')[0];
+
+      await menuFlow.sendMainMenu(phoneNumberId, accessToken, from, firstName);
+
+      return {
+        ...session,
+        state: STATES.MAIN_MENU,
+        data: {
+          patientId: patient.id,
+          healthId: patient.health_id,
+          fullName: patient.full_name,
+          phone
+        }
+      };
+    }
+  } catch (err) {
+    logger.error('Failed to query existing patient phone for auto-login:', err);
+  }
 
   await sendText(phoneNumberId, accessToken, from,
     `👋 Welcome to *${hospName}*!\n\nI'm your appointment assistant. I can help you:\n• 📅 Book appointments\n• 🔔 Get queue updates\n• 📄 Receive reports\n\nAre you a *new* or *returning* patient?\n\nReply:\n1️⃣ New Patient\n2️⃣ Returning Patient`
   );
 
-  return { ...session, state: 'NEW_OR_RETURNING' };
+  return { ...session, state: STATES.NEW_OR_RETURNING };
 }
 
 async function handleNewOrReturning(ctx, session, input) {

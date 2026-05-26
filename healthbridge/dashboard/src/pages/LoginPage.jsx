@@ -24,7 +24,7 @@ export default function LoginPage() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-logo">
-          <h1>🏥 Health<span>Bridge</span></h1>
+          <h1>🏥 AYU</h1>
           <p>Hospital Staff Dashboard</p>
         </div>
 
@@ -70,7 +70,7 @@ export default function LoginPage() {
         </form>
 
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '12px', color: 'var(--text-muted)' }}>
-          HealthBridge v1.0 · Secure access for authorised staff only
+          AYU v1.0 · Secure access for authorised staff only
         </p>
       </div>
     </div>

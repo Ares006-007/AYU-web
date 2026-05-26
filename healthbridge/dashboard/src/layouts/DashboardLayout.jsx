@@ -26,7 +26,7 @@ export default function DashboardLayout() {
       {/* ── Sidebar ── */}
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <h1>🏥 HealthBridge</h1>
+          <h1>🏥 AYU</h1>
           <p>{user?.hospitalName || 'Hospital Dashboard'}</p>
         </div>
 

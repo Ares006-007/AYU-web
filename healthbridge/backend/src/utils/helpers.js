@@ -9,10 +9,32 @@ const { nanoid } = require('nanoid');
  * @returns {string} Health ID
  */
 function generateHealthId(city) {
-  const cityCode = (city || 'GEN').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3).padEnd(3, 'X');
+  const normalizedCity = (city || '').toLowerCase().trim();
+  let cityCode = 'GEN';
+  if (normalizedCity.includes('hyderabad') || normalizedCity.includes('secunderabad')) {
+    cityCode = 'HYD';
+  } else if (normalizedCity.includes('mumbai') || normalizedCity.includes('bombay')) {
+    cityCode = 'MUM';
+  } else if (normalizedCity.includes('delhi')) {
+    cityCode = 'DEL';
+  } else if (normalizedCity.includes('bengaluru') || normalizedCity.includes('bangalore')) {
+    cityCode = 'BLR';
+  } else if (normalizedCity.includes('chennai') || normalizedCity.includes('madras')) {
+    cityCode = 'CHN';
+  } else if (normalizedCity.includes('kolkata') || normalizedCity.includes('calcutta')) {
+    cityCode = 'KOL';
+  } else if (normalizedCity.includes('pune')) {
+    cityCode = 'PUN';
+  } else if (normalizedCity.includes('visakhapatnam') || normalizedCity.includes('vizag')) {
+    cityCode = 'VZG';
+  } else {
+    cityCode = normalizedCity.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3).padEnd(3, 'X');
+    if (!cityCode) cityCode = 'GEN';
+  }
+
   const year = new Date().getFullYear();
-  // nanoid with uppercase alphanumeric charset
-  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // Exclude confusing characters: 0, O, 1, I
+  const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
   let suffix = '';
   for (let i = 0; i < 6; i++) {
     suffix += chars[Math.floor(Math.random() * chars.length)];

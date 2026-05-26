@@ -31,7 +31,20 @@ async function handleDept(ctx, session, input, STATES) {
     await sendText(phoneNumberId, accessToken, from,
       "No problem! Whenever you're ready, just send us a message to book your appointment. 😊\n\nStay healthy! 🙏"
     );
-    return { ...session, state: STATES.IDLE, data: { patientId: session.data.patientId } };
+    const { sendMainMenu } = require('./menu.flow');
+    const patientName = session.data.fullName || 'Patient';
+    const firstName = patientName.split(' ')[0];
+    await sendMainMenu(phoneNumberId, accessToken, from, firstName);
+    return {
+      ...session,
+      state: STATES.MAIN_MENU,
+      data: {
+        patientId: session.data.patientId,
+        healthId: session.data.healthId,
+        fullName: patientName,
+        phone: session.data.phone
+      }
+    };
   }
 
   // Load departments for this hospital
@@ -206,7 +219,25 @@ async function handleComplaint(ctx, session, input, STATES) {
       `✅ *Appointment Confirmed!*\n\n🏥 ${slot.hospital_name || 'Your clinic'}\n👨‍⚕️ Dr. ${slot.full_name} (${session.data.selectedDept})\n📅 ${formatIndianDate(appointmentDate)}\n🎫 Your Token: *#${tokenNumber}*\n\n📌 You don't need to arrive early. We'll send you a WhatsApp alert when your turn is approaching.\n\n*Please arrive 15 minutes before your token is called.*\n\nReply *STATUS* anytime to check your queue position.`
     );
 
-    return { ...session, state: STATES.IDLE, data: { patientId } };
+    let patientName = session.data.fullName;
+    if (!patientName) {
+      const pResult = await query('SELECT full_name FROM patients WHERE id = $1', [patientId]);
+      patientName = pResult.rows[0]?.full_name || 'Patient';
+    }
+    const firstName = patientName.split(' ')[0];
+    const { sendMainMenu } = require('./menu.flow');
+    await sendMainMenu(phoneNumberId, accessToken, from, firstName);
+
+    return {
+      ...session,
+      state: STATES.MAIN_MENU,
+      data: {
+        patientId,
+        healthId: session.data.healthId,
+        fullName: patientName,
+        phone: session.data.phone
+      }
+    };
 
   } catch (err) {
     if (err.message === 'SLOT_FULL') {

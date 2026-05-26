@@ -1,7 +1,7 @@
 {
-  "name": "healthbridge-api",
+  "name": "ayu-api",
   "version": "1.0.0",
-  "description": "HealthBridge WhatsApp-first healthcare platform API",
+  "description": "AYU WhatsApp-first healthcare platform API",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
