@@ -884,19 +884,18 @@ input, textarea, select {
 .problem__card::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 12px;
   left: 0;
-  right: 0;
-  height: 3px;
+  bottom: 12px;
+  width: 2px;
   background: var(--accent);
   opacity: 0;
   transition: opacity var(--duration-normal) var(--ease-out);
 }
 
 .problem__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .problem__card:hover::before {
@@ -1128,8 +1127,8 @@ input, textarea, select {
 }
 
 .why-now__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .why-now__card-number {
@@ -1200,9 +1199,8 @@ input, textarea, select {
 }
 
 .audience__card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .audience__card-icon {
@@ -1217,19 +1215,10 @@ input, textarea, select {
   transition: all var(--duration-normal) var(--ease-out);
 }
 
-.audience__card:hover .audience__card-icon {
-  background: var(--accent);
-}
-
 .audience__card-icon svg {
   width: 24px;
   height: 24px;
   color: var(--accent);
-  transition: color var(--duration-normal) var(--ease-out);
-}
-
-.audience__card:hover .audience__card-icon svg {
-  color: var(--text-inverse);
 }
 
 .audience__card-label {
