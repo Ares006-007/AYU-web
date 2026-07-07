@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayu — Rethinking Hospital Outpatient Flow</title>
-  <meta name="description" content="Ayu is building the operating layer for hospital outpatient flow — so patients wait less, staff stress less, and every visit feels organized.">
-  <meta name="keywords" content="healthcare startup, hospital OPD, patient flow, health technology, India">
+  <title>Ayu — WhatsApp Outpatient Flow for Hospitals</title>
+  <meta name="description" content="Ayu coordinates hospital outpatient flow through WhatsApp — reducing unnecessary travel, blind waiting times, and repeat trips for lab reports.">
+  <meta name="keywords" content="hospital patient flow, whatsapp health, OPD queues India, healthcare technology, patient travel burden">
   <meta name="author" content="Ayu">
-  <meta property="og:title" content="Ayu — Rethinking Hospital Outpatient Flow">
-  <meta property="og:description" content="Ayu is building the operating layer for hospital outpatient flow — so patients wait less, staff stress less, and every visit feels organized.">
+  <meta property="og:title" content="Ayu — WhatsApp Outpatient Flow for Hospitals">
+  <meta property="og:description" content="Ayu coordinates hospital outpatient flow through WhatsApp — reducing unnecessary travel, blind waiting times, and repeat trips for lab reports.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0F766E">
   <link rel="stylesheet" href="style.css">
@@ -22,12 +22,12 @@
     <div class="nav__inner">
       <a href="#" class="nav__logo" aria-label="Ayu — Home">
         <span class="nav__logo-text">ayu</span>
-        <span class="nav__logo-dot" aria-hidden="true">OPD</span>
+        <span class="nav__logo-dot" aria-hidden="true"></span>
       </a>
 
       <ul class="nav__links" role="list">
-        <li><a href="#problem" class="nav__link">Problem</a></li>
-        <li><a href="#vision" class="nav__link">Vision</a></li>
+        <li><a href="#problem" class="nav__link">The Burden</a></li>
+        <li><a href="#vision" class="nav__link">How it works</a></li>
         <li><a href="#audience" class="nav__link">Who it's for</a></li>
         <li><a href="#status" class="nav__link">Stage</a></li>
       </ul>
@@ -43,7 +43,7 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <a href="#waitlist" class="nav__cta">Join waitlist</a>
+        <a href="#waitlist" class="nav__cta">Partner with us</a>
       </div>
 
       <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
@@ -54,11 +54,11 @@
     </div>
 
     <div class="nav__mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="#problem" class="nav__link">Problem</a>
-      <a href="#vision" class="nav__link">Vision</a>
+      <a href="#problem" class="nav__link">The Burden</a>
+      <a href="#vision" class="nav__link">How it works</a>
       <a href="#audience" class="nav__link">Who it's for</a>
       <a href="#status" class="nav__link">Stage</a>
-      <a href="#waitlist" class="nav__mobile-cta">Join the waitlist</a>
+      <a href="#waitlist" class="nav__mobile-cta">Partner with us</a>
     </div>
   </nav>
 
@@ -70,23 +70,23 @@
     <div class="hero__grid">
       <div class="hero__content reveal">
         <p class="hero__eyebrow">
-          <span class="hero__eyebrow-stage">Early stage</span>
-          <span class="hero__eyebrow-detail">Building the foundation, carefully</span>
+          <span class="hero__eyebrow-stage">Early validation</span>
+          <span class="hero__eyebrow-detail">Tackling hospital queue fatigue</span>
         </p>
         <h1 class="hero__title">
-          Better care starts<br>
-          <span class="hero__title-accent">before the consultation.</span>
+          A hospital visit shouldn't mean<br>
+          <span class="hero__title-accent">a 100km travel burden.</span>
         </h1>
         <p class="hero__description">
-          Ayu is building the operating layer for hospital outpatient flow — so patients wait less, staff stress less, and every visit feels organized.
+          Ayu coordinates outpatient flow through WhatsApp. We help hospitals manage bookings, send live turn estimates, collect fees, and deliver reports in one familiar thread — so patients don't travel blindly or wait in crowded lobbies.
         </p>
         <div class="hero__actions">
           <a href="#waitlist" class="btn btn--primary" id="heroCta">
-            Join the waitlist
+            Request early pilot access
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="#vision" class="btn btn--secondary">
-            See the vision
+            See how it works
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -97,41 +97,58 @@
         <div class="hero__mockup">
           <div class="hero__mockup-card">
             <div class="hero__mockup-header">
-              <div class="hero__mockup-info">
-                <div class="hero__mockup-title">OPD Queue — General</div>
-                <div class="hero__mockup-subtitle">12 patients · Avg. wait 8 min</div>
+              <div class="hero__mockup-avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               </div>
-              <div class="hero__mockup-status">Live</div>
+              <div class="hero__mockup-info">
+                <div class="hero__mockup-title">Ayu Chat Assistant</div>
+                <div class="hero__mockup-subtitle">WhatsApp Integration Thread</div>
+              </div>
+              <div class="hero__mockup-status">Online</div>
             </div>
             <div class="hero__mockup-rows">
               <div class="hero__mockup-row">
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">Priya Sharma</div>
-                  <div class="hero__mockup-row-meta">Token #4 · Check-in 10:15 AM</div>
+                <div class="hero__mockup-row-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
-                <div class="hero__mockup-row-badge">In next</div>
+                <div class="hero__mockup-row-text">
+                  <div class="hero__mockup-row-label">OPD Check-in Confirmed</div>
+                  <div class="hero__mockup-row-meta">General Medicine · Token #14 · Est. turn: 11:20 AM</div>
+                </div>
+                <div class="hero__mockup-row-badge">Confirmed</div>
               </div>
               <div class="hero__mockup-row">
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">Rahul Mehta</div>
-                  <div class="hero__mockup-row-meta">Token #5 · Check-in 10:22 AM</div>
+                <div class="hero__mockup-row-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                 </div>
-                <div class="hero__mockup-row-badge">~12 min</div>
+                <div class="hero__mockup-row-text">
+                  <div class="hero__mockup-row-label">Queue Turn Alert</div>
+                  <div class="hero__mockup-row-meta">3 patients ahead of you. Head to Room 4.</div>
+                </div>
+                <div class="hero__mockup-row-badge">Active</div>
               </div>
               <div class="hero__mockup-row">
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">Ananya Desai</div>
-                  <div class="hero__mockup-row-meta">Token #6 · Check-in 10:30 AM</div>
+                <div class="hero__mockup-row-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
                 </div>
-                <div class="hero__mockup-row-badge">~20 min</div>
+                <div class="hero__mockup-row-text">
+                  <div class="hero__mockup-row-label">Lab Reports Ready</div>
+                  <div class="hero__mockup-row-meta">Click to download: CBC_Blood_Report.pdf</div>
+                </div>
+                <div class="hero__mockup-row-badge">PDF</div>
               </div>
             </div>
           </div>
 
-          <!-- Attached metadata/status card -->
+          <!-- Floating accent card -->
           <div class="hero__float-card">
-            <div class="hero__float-text">Wait time ↓ 40%</div>
-            <div class="hero__float-sub">Avg. improvement projected</div>
+            <div class="hero__float-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div>
+              <div class="hero__float-text">Repeat trips avoided</div>
+              <div class="hero__float-sub">Reports sent straight to WhatsApp</div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,28 +168,36 @@
     </div>
 
     <div class="problem__grid">
-      <div class="problem__col" id="problem-wait">
-        <div class="problem__num">01/</div>
-        <h3 class="problem__col-title">Excessive waiting</h3>
-        <p class="problem__col-text">Patients spend hours in crowded lobbies with no visibility into when they'll be seen. Time that could be spent resting or at work.</p>
+      <div class="problem__card reveal reveal-delay-1" id="problem-wait">
+        <div class="problem__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="problem__card-title">Excessive waiting</h3>
+        <p class="problem__card-text">Patients spend hours in crowded lobbies with no visibility into when they'll be seen. Time that could be spent resting or at work.</p>
       </div>
 
-      <div class="problem__col" id="problem-flow">
-        <div class="problem__num">02/</div>
-        <h3 class="problem__col-title">Chaotic OPD flow</h3>
-        <p class="problem__col-text">Queues are managed manually or not at all. Staff juggle token systems, paper registers, and constant interruptions throughout the day.</p>
+      <div class="problem__card reveal reveal-delay-2" id="problem-flow">
+        <div class="problem__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="problem__card-title">Chaotic OPD flow</h3>
+        <p class="problem__card-text">Queues are managed manually or not at all. Staff juggle token systems, paper registers, and constant interruptions throughout the day.</p>
       </div>
 
-      <div class="problem__col" id="problem-comm">
-        <div class="problem__num">03/</div>
-        <h3 class="problem__col-title">Fragmented communication</h3>
-        <p class="problem__col-text">Updates come via phone calls, WhatsApp, or word of mouth. There's no single channel for appointments, reminders, and follow-ups.</p>
+      <div class="problem__card reveal reveal-delay-3" id="problem-comm">
+        <div class="problem__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="problem__card-title">Fragmented communication</h3>
+        <p class="problem__card-text">Updates come via phone calls, WhatsApp, or word of mouth. There's no single channel for appointments, reminders, and follow-ups.</p>
       </div>
 
-      <div class="problem__col" id="problem-stress">
-        <div class="problem__num">04/</div>
-        <h3 class="problem__col-title">Stressful for everyone</h3>
-        <p class="problem__col-text">It's not just patients. Doctors lose consultation time. Receptionists are overwhelmed. The system creates friction at every step.</p>
+      <div class="problem__card reveal reveal-delay-4" id="problem-stress">
+        <div class="problem__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <h3 class="problem__card-title">Stressful for everyone</h3>
+        <p class="problem__card-text">It's not just patients. Doctors lose consultation time. Receptionists are overwhelmed. The system creates friction at every step.</p>
       </div>
     </div>
   </section>
@@ -182,7 +207,7 @@
        ============================================================ -->
   <section class="vision" id="vision">
     <div class="vision__layout">
-      <div class="vision__content">
+      <div class="vision__content reveal">
         <span class="section-label">The Vision</span>
         <h2 class="section-heading">A calmer, smarter way to access care.</h2>
         <p class="section-subheading">
@@ -190,28 +215,36 @@
         </p>
         <div class="vision__features">
           <div class="vision__feature">
-            <span class="vision__num">//</span>
+            <div class="vision__feature-marker">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
             <div>
               <div class="vision__feature-text">Smoother care access</div>
               <p class="vision__feature-desc">Book, check in, and track your visit without standing in line.</p>
             </div>
           </div>
           <div class="vision__feature">
-            <span class="vision__num">//</span>
+            <div class="vision__feature-marker">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
             <div>
               <div class="vision__feature-text">Queue and visit coordination</div>
               <p class="vision__feature-desc">Real-time queue visibility so you arrive when it's your turn — not hours before.</p>
             </div>
           </div>
           <div class="vision__feature">
-            <span class="vision__num">//</span>
+            <div class="vision__feature-marker">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
             <div>
               <div class="vision__feature-text">Unified communication</div>
               <p class="vision__feature-desc">Appointments, reports, and updates in one place — no more scattered messages.</p>
             </div>
           </div>
           <div class="vision__feature">
-            <span class="vision__num">//</span>
+            <div class="vision__feature-marker">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
             <div>
               <div class="vision__feature-text">Hospital-side workflow tools</div>
               <p class="vision__feature-desc">Help hospitals manage daily operations with less manual overhead.</p>
@@ -227,18 +260,22 @@
               <div class="vision__flow-num">1</div>
               <div class="vision__flow-label">Patient books visit</div>
             </div>
+            <div class="vision__flow-connector" aria-hidden="true"></div>
             <div class="vision__flow-step">
               <div class="vision__flow-num">2</div>
               <div class="vision__flow-label">Queue position assigned</div>
             </div>
+            <div class="vision__flow-connector" aria-hidden="true"></div>
             <div class="vision__flow-step">
               <div class="vision__flow-num">3</div>
               <div class="vision__flow-label">Real-time status updates</div>
             </div>
+            <div class="vision__flow-connector" aria-hidden="true"></div>
             <div class="vision__flow-step">
               <div class="vision__flow-num">4</div>
               <div class="vision__flow-label">Arrive just in time</div>
             </div>
+            <div class="vision__flow-connector" aria-hidden="true"></div>
             <div class="vision__flow-step">
               <div class="vision__flow-num">5</div>
               <div class="vision__flow-label">Consultation + follow-up managed</div>
@@ -263,20 +300,20 @@
       </div>
 
       <div class="why-now__grid">
-        <div class="why-now__col" id="why-digital">
-          <div class="why-now__num">01/</div>
-          <h3 class="why-now__col-title">Digital expectations are rising</h3>
-          <p class="why-now__col-text">Patients now book cabs, food, and flights on their phones. They expect the same from healthcare — but hospital systems haven't kept pace.</p>
+        <div class="why-now__card reveal reveal-delay-1" id="why-digital">
+          <div class="why-now__card-number">01</div>
+          <h3 class="why-now__card-title">Digital expectations are rising</h3>
+          <p class="why-now__card-text">Patients now book cabs, food, and flights on their phones. They expect the same from healthcare — but hospital systems haven't kept pace.</p>
         </div>
-        <div class="why-now__col" id="why-ops">
-          <div class="why-now__num">02/</div>
-          <h3 class="why-now__col-title">Hospitals need better operations</h3>
-          <p class="why-now__col-text">Even well-funded hospitals struggle with OPD congestion and manual coordination. The problem isn't awareness — it's tooling.</p>
+        <div class="why-now__card reveal reveal-delay-2" id="why-ops">
+          <div class="why-now__card-number">02</div>
+          <h3 class="why-now__card-title">Hospitals need better operations</h3>
+          <p class="why-now__card-text">Even well-funded hospitals struggle with OPD congestion and manual coordination. The problem isn't awareness — it's tooling.</p>
         </div>
-        <div class="why-now__col" id="why-comm">
-          <div class="why-now__num">03/</div>
-          <h3 class="why-now__col-title">Communication must simplify</h3>
-          <p class="why-now__col-text">Health interactions are scattered across calls, messages, and paper. One unified channel would reduce errors and improve follow-through.</p>
+        <div class="why-now__card reveal reveal-delay-3" id="why-comm">
+          <div class="why-now__card-number">03</div>
+          <h3 class="why-now__card-title">Communication must simplify</h3>
+          <p class="why-now__card-text">Health interactions are scattered across calls, messages, and paper. One unified channel would reduce errors and improve follow-through.</p>
         </div>
       </div>
     </div>
@@ -287,7 +324,7 @@
        ============================================================ -->
   <section class="audience" id="audience">
     <div class="audience__inner">
-      <div class="audience__header">
+      <div class="audience__header reveal">
         <span class="section-label">Who It's For</span>
         <h2 class="section-heading">Built for every side of the visit.</h2>
         <p class="section-subheading">
@@ -296,61 +333,70 @@
       </div>
 
       <div class="audience__grid">
-        <div class="audience__col" id="audience-patients">
-          <div class="audience__col-label">For Patients</div>
-          <h3 class="audience__col-title">Less waiting. More clarity.</h3>
-          <p class="audience__col-text">Know your position in the queue, get real-time updates, and arrive at the hospital only when it's close to your turn.</p>
-          <div class="audience__col-features">
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+        <div class="audience__card reveal reveal-delay-1" id="audience-patients">
+          <div class="audience__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="audience__card-label">For Patients</div>
+          <h3 class="audience__card-title">Less waiting. More clarity.</h3>
+          <p class="audience__card-text">Know your position in the queue, get real-time updates, and arrive at the hospital only when it's close to your turn.</p>
+          <div class="audience__card-features">
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Queue visibility and wait estimates
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Easy booking and check-in
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Reports and follow-ups in one place
             </div>
           </div>
         </div>
 
-        <div class="audience__col" id="audience-hospitals">
-          <div class="audience__col-label">For Hospitals</div>
-          <h3 class="audience__col-title">Organized OPD. Less chaos.</h3>
-          <p class="audience__col-text">Replace manual token systems with structured patient flow. Reduce lobby congestion and give staff the tools to focus on care.</p>
-          <div class="audience__col-features">
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+        <div class="audience__card reveal reveal-delay-2" id="audience-hospitals">
+          <div class="audience__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="audience__card-label">For Hospitals</div>
+          <h3 class="audience__card-title">Organized OPD. Less chaos.</h3>
+          <p class="audience__card-text">Replace manual token systems with structured patient flow. Reduce lobby congestion and give staff the tools to focus on care.</p>
+          <div class="audience__card-features">
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Automated queue management
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Real-time OPD dashboard
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Patient communication tools
             </div>
           </div>
         </div>
 
-        <div class="audience__col" id="audience-doctors">
-          <div class="audience__col-label">For Doctors & Staff</div>
-          <h3 class="audience__col-title">Focused time. Better flow.</h3>
-          <p class="audience__col-text">Spend less time managing logistics and more time with patients. Structured schedules and prepped queues mean smoother consultations.</p>
-          <div class="audience__col-features">
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+        <div class="audience__card reveal reveal-delay-3" id="audience-doctors">
+          <div class="audience__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="audience__card-label">For Doctors & Staff</div>
+          <h3 class="audience__card-title">Focused time. Better flow.</h3>
+          <p class="audience__card-text">Spend less time managing logistics and more time with patients. Structured schedules and prepped queues mean smoother consultations.</p>
+          <div class="audience__card-features">
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Structured daily schedule
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Patient context before consultation
             </div>
-            <div class="audience__col-feature">
-              <span class="audience__feature-marker">//</span>
+            <div class="audience__card-feature">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               Reduced interruptions
             </div>
           </div>
@@ -372,44 +418,58 @@
         </p>
       </div>
 
-      <div class="status__matrix">
-        <div class="status__row status__row--done">
-          <div class="status__cell-status">Done</div>
-          <div class="status__cell-content">
-            <h3 class="status__cell-title">Problem validation</h3>
-            <p class="status__cell-desc">Researched OPD pain points across hospitals, patients, and healthcare staff.</p>
+      <div class="status__timeline reveal reveal-delay-1">
+        <div class="status__step status__step--done">
+          <div class="status__step-line">
+            <div class="status__step-dot"></div>
+            <div class="status__step-connector"></div>
+          </div>
+          <div class="status__step-content">
+            <h3 class="status__step-title">Problem validation</h3>
+            <p class="status__step-desc">Researched OPD pain points across hospitals, patients, and healthcare staff.</p>
           </div>
         </div>
 
-        <div class="status__row status__row--active">
-          <div class="status__cell-status">Active</div>
-          <div class="status__cell-content">
-            <h3 class="status__cell-title">Early design & architecture</h3>
-            <p class="status__cell-desc">Defining the product experience, technical approach, and core user flows.</p>
+        <div class="status__step status__step--active">
+          <div class="status__step-line">
+            <div class="status__step-dot"></div>
+            <div class="status__step-connector"></div>
+          </div>
+          <div class="status__step-content">
+            <h3 class="status__step-title">Early design & architecture</h3>
+            <p class="status__step-desc">Defining the product experience, technical approach, and core user flows.</p>
           </div>
         </div>
 
-        <div class="status__row status__row--upcoming">
-          <div class="status__cell-status">Upcoming</div>
-          <div class="status__cell-content">
-            <h3 class="status__cell-title">Hospital conversations</h3>
-            <p class="status__cell-desc">Exploring partnerships with hospitals for early pilot programs.</p>
+        <div class="status__step status__step--upcoming">
+          <div class="status__step-line">
+            <div class="status__step-dot"></div>
+            <div class="status__step-connector"></div>
+          </div>
+          <div class="status__step-content">
+            <h3 class="status__step-title">Hospital conversations</h3>
+            <p class="status__step-desc">Exploring partnerships with hospitals for early pilot programs.</p>
           </div>
         </div>
 
-        <div class="status__row status__row--upcoming">
-          <div class="status__cell-status">Upcoming</div>
-          <div class="status__cell-content">
-            <h3 class="status__cell-title">First version development</h3>
-            <p class="status__cell-desc">Building the initial product with a focused scope for real-world testing.</p>
+        <div class="status__step status__step--upcoming">
+          <div class="status__step-line">
+            <div class="status__step-dot"></div>
+            <div class="status__step-connector"></div>
+          </div>
+          <div class="status__step-content">
+            <h3 class="status__step-title">First version development</h3>
+            <p class="status__step-desc">Building the initial product with a focused scope for real-world testing.</p>
           </div>
         </div>
 
-        <div class="status__row status__row--upcoming">
-          <div class="status__cell-status">Upcoming</div>
-          <div class="status__cell-content">
-            <h3 class="status__cell-title">Pilot launch</h3>
-            <p class="status__cell-desc">Rolling out with select hospital partners to learn, iterate, and refine.</p>
+        <div class="status__step status__step--upcoming">
+          <div class="status__step-line">
+            <div class="status__step-dot"></div>
+          </div>
+          <div class="status__step-content">
+            <h3 class="status__step-title">Pilot launch</h3>
+            <p class="status__step-desc">Rolling out with select hospital partners to learn, iterate, and refine.</p>
           </div>
         </div>
       </div>
@@ -507,7 +567,7 @@
         <div class="footer__brand">
           <div class="footer__logo">
             <span class="footer__logo-text">ayu</span>
-            <span class="footer__logo-dot" aria-hidden="true">OPD</span>
+            <span class="footer__logo-dot" aria-hidden="true"></span>
           </div>
           <p class="footer__tagline">Building the operating layer for hospital outpatient flow. Making care access calmer, clearer, and more organized — for patients and hospitals alike.</p>
         </div>

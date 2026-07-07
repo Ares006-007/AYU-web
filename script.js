@@ -219,8 +219,39 @@
     heroObserver.observe(heroSection);
   }
 
+  // --- Timeline step animation ---
+  const timelineSteps = document.querySelectorAll('.status__step');
+  const timelineObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const steps = entry.target.querySelectorAll('.status__step');
+          steps.forEach(function (step, i) {
+            setTimeout(function () {
+              step.style.opacity = '1';
+              step.style.transform = 'translateX(0)';
+            }, i * 120);
+          });
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  const timeline = document.querySelector('.status__timeline');
+  if (timeline) {
+    timelineSteps.forEach(function (step) {
+      step.style.opacity = '0';
+      step.style.transform = 'translateX(-12px)';
+      step.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    timelineObserver.observe(timeline);
+  }
+
   // --- Vision flow step animation ---
   const flowSteps = document.querySelectorAll('.vision__flow-step');
+  const flowConnectors = document.querySelectorAll('.vision__flow-connector');
 
   const flowObserver = new IntersectionObserver(
     function (entries) {
@@ -230,7 +261,13 @@
             setTimeout(function () {
               step.style.opacity = '1';
               step.style.transform = 'translateY(0)';
-            }, i * 100);
+            }, i * 150);
+          });
+          flowConnectors.forEach(function (conn, i) {
+            setTimeout(function () {
+              conn.style.opacity = '1';
+              conn.style.height = '12px';
+            }, i * 150 + 75);
           });
           flowObserver.unobserve(entry.target);
         }
@@ -244,7 +281,12 @@
     flowSteps.forEach(function (step) {
       step.style.opacity = '0';
       step.style.transform = 'translateY(8px)';
-      step.style.transition = 'opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out)';
+      step.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    flowConnectors.forEach(function (conn) {
+      conn.style.opacity = '0';
+      conn.style.height = '0';
+      conn.style.transition = 'opacity 0.3s ease, height 0.3s ease';
     });
     flowObserver.observe(flowGraphic);
   }
