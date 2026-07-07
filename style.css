@@ -1388,9 +1388,9 @@ input, textarea, select {
 .waitlist__form-wrapper {
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-sm);
   padding: clamp(1.75rem, 3vw, 2.5rem);
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 }
 
 .waitlist__form {
@@ -1412,40 +1412,39 @@ input, textarea, select {
 }
 
 .form-field__label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
   color: var(--text-primary);
 }
 
 .form-field__label span {
   color: var(--text-tertiary);
   font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .form-field__input,
 .form-field__select,
 .form-field__textarea {
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1rem;
   font-size: var(--font-size-sm);
   color: var(--text-primary);
   background: var(--bg-primary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   outline: none;
-  transition: all var(--duration-fast) var(--ease-out);
+  transition: border-color var(--duration-fast) var(--ease-out);
 }
 
 .form-field__input:focus,
 .form-field__select:focus,
 .form-field__textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
-}
-
-[data-theme="dark"] .form-field__input:focus,
-[data-theme="dark"] .form-field__select:focus,
-[data-theme="dark"] .form-field__textarea:focus {
-  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
+  border-color: var(--text-primary);
+  box-shadow: none;
 }
 
 .form-field__input::placeholder,
@@ -1469,12 +1468,15 @@ input, textarea, select {
 .waitlist__submit {
   width: 100%;
   padding: 0.875rem;
-  font-size: var(--font-size-base);
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
   color: var(--text-inverse);
-  background: var(--accent);
-  border: none;
-  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
   margin-top: 0.5rem;
@@ -1482,12 +1484,14 @@ input, textarea, select {
 
 .waitlist__submit:hover {
   background: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(15, 118, 110, 0.25);
+  border-color: var(--accent-hover);
+  transform: none;
+  box-shadow: none;
 }
 
 .waitlist__form-note {
-  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--text-tertiary);
   text-align: center;
   margin-top: 0.25rem;
@@ -1596,18 +1600,25 @@ input, textarea, select {
 }
 
 .footer__logo-text {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
 .footer__logo-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-accent);
+  background: var(--bg-accent-subtle);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
 }
 
 .footer__tagline {
@@ -1622,6 +1633,7 @@ input, textarea, select {
 }
 
 .footer__links-col h4 {
+  font-family: var(--font-mono);
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: var(--letter-spacing-wider);
