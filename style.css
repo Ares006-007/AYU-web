@@ -200,14 +200,11 @@ input, textarea, select {
 /* --- Reveal Animations --- */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity var(--duration-slow) var(--ease-out),
-              transform var(--duration-slow) var(--ease-out);
+  transition: opacity var(--duration-normal) var(--ease-out);
 }
 
 .reveal.revealed {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .reveal-delay-1 { transition-delay: 100ms; }
