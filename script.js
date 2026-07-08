@@ -3,6 +3,13 @@
    Interactions & Animations
    ============================================================ */
 
+// --- Global Configuration ---
+const AYU_CONFIG = {
+  // Replace with your Formspree Form ID (e.g. 'xpzvowqe') to send emails to your inbox.
+  // If left as 'YOUR_FORMSPREE_ID' or empty, form submissions will run in simulation mode.
+  FORMSPREE_ID: 'YOUR_FORMSPREE_ID'
+};
+
 (function () {
   'use strict';
 
@@ -142,45 +149,162 @@
   const waitlistSuccess = document.getElementById('waitlistSuccess');
   const waitlistSubmit = document.getElementById('waitlistSubmit');
 
-  waitlistForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+  if (waitlistForm) {
+    // Clear error styling on input change/typing
+    const formInputs = waitlistForm.querySelectorAll('.form-field__input, .form-field__select, .form-field__textarea');
+    formInputs.forEach(input => {
+      input.addEventListener('input', function () {
+        this.classList.remove('error');
+      });
+      input.addEventListener('change', function () {
+        this.classList.remove('error');
+      });
+    });
 
-    // Basic validation
-    const name = document.getElementById('waitlist-name').value.trim();
-    const email = document.getElementById('waitlist-email').value.trim();
-    const role = document.getElementById('waitlist-role').value;
+    waitlistForm.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    if (!name || !email || !role) {
-      showToast('Please fill in all required fields.');
-      return;
-    }
+      // Retrieve form elements
+      const nameInput = document.getElementById('waitlist-name');
+      const emailInput = document.getElementById('waitlist-email');
+      const orgInput = document.getElementById('waitlist-org');
+      const roleInput = document.getElementById('waitlist-role');
+      const messageInput = document.getElementById('waitlist-message');
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      showToast('Please enter a valid email address.');
-      return;
-    }
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const org = orgInput.value.trim();
+      const role = roleInput.value;
+      const message = messageInput.value.trim();
 
-    // Simulate submission
-    waitlistSubmit.textContent = 'Submitting...';
-    waitlistSubmit.disabled = true;
-    waitlistSubmit.style.opacity = '0.7';
+      let hasError = false;
 
-    setTimeout(function () {
-      waitlistForm.style.display = 'none';
-      waitlistSuccess.classList.add('active');
-      showToast('Welcome to the Ayu waitlist!');
-    }, 1200);
-  });
+      // Validate required fields
+      if (!name) {
+        nameInput.classList.add('error');
+        hasError = true;
+      }
+
+      if (!role) {
+        roleInput.classList.add('error');
+        hasError = true;
+      }
+
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        emailInput.classList.add('error');
+        hasError = true;
+      }
+
+      if (hasError) {
+        showToast('Please correct the highlighted fields.', 'error');
+        return;
+      }
+
+      // Prepare payload
+      const formData = {
+        name: name,
+        email: email,
+        organization: org || 'Not Specified',
+        role: role,
+        message: message || 'No message provided.',
+        _subject: `Ayu pilot inquiry — ${org || 'No Organization'}`
+      };
+
+      // Set loading state
+      waitlistSubmit.textContent = 'Requesting pilot access...';
+      waitlistSubmit.disabled = true;
+      waitlistSubmit.style.opacity = '0.7';
+
+      const formspreeId = AYU_CONFIG.FORMSPREE_ID && 
+                          AYU_CONFIG.FORMSPREE_ID.trim() !== '' && 
+                          AYU_CONFIG.FORMSPREE_ID !== 'YOUR_FORMSPREE_ID'
+        ? AYU_CONFIG.FORMSPREE_ID.trim()
+        : null;
+
+      if (!formspreeId) {
+        // Local simulation / Developer fallback mode
+        console.log('%c[Ayu Form Simulation] Submitting payload:', 'color: #0F766E; font-weight: bold;', formData);
+        setTimeout(function () {
+          waitlistForm.style.display = 'none';
+          waitlistSuccess.classList.add('active');
+          showToast('Inquiry sent successfully (Simulated Developer Mode).', 'success');
+          waitlistForm.reset();
+          
+          // Reset button text
+          waitlistSubmit.textContent = 'Request pilot access';
+          waitlistSubmit.disabled = false;
+          waitlistSubmit.style.opacity = '';
+        }, 1200);
+        return;
+      }
+
+      // Real Formspree submission
+      fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (response.ok) {
+          waitlistForm.style.display = 'none';
+          waitlistSuccess.classList.add('active');
+          showToast('Thank you! Your pilot request has been received.', 'success');
+          waitlistForm.reset();
+          
+          // Reset button text
+          waitlistSubmit.textContent = 'Request pilot access';
+          waitlistSubmit.disabled = false;
+          waitlistSubmit.style.opacity = '';
+        } else {
+          return response.json().then(data => {
+            throw new Error(data.error || 'Submission failed');
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        showToast(error.message || 'Failed to submit request. Please check your connection and try again.', 'error');
+        
+        // Restore button state on error to allow retry
+        waitlistSubmit.textContent = 'Request pilot access';
+        waitlistSubmit.disabled = false;
+        waitlistSubmit.style.opacity = '';
+      });
+    });
+  }
 
   // --- Toast Notification ---
   const toast = document.getElementById('toast');
   const toastText = document.getElementById('toastText');
+  const toastIcon = document.getElementById('toastIcon');
   let toastTimeout;
 
-  function showToast(message) {
+  const TOAST_ICONS = {
+    success: `<svg class="toast__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    error: `<svg class="toast__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`
+  };
+
+  function showToast(message, type = 'success') {
     toastText.textContent = message;
+
+    // Dynamically swap the icon SVG based on state
+    if (toastIcon && TOAST_ICONS[type]) {
+      toastIcon.innerHTML = TOAST_ICONS[type];
+    }
+
+    // Set styling class based on state type
+    toast.className = 'toast'; // Reset classes
+    if (type === 'error') {
+      toast.classList.add('toast--error');
+    } else {
+      toast.classList.add('toast--success');
+    }
+
     toast.classList.add('active');
 
     clearTimeout(toastTimeout);
