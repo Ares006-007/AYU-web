@@ -83,6 +83,11 @@
   --nav-height: 72px;
   --nav-bg: rgba(250, 250, 248, 0.85);
   --nav-border: rgba(0, 0, 0, 0.06);
+
+  /* Error / Validation states */
+  --error: #DC2626;
+  --error-bg: #FEF2F2;
+  --error-border: #FCA5A5;
 }
 
 /* --- Dark Mode --- */
@@ -115,6 +120,11 @@
 
   --nav-bg: rgba(12, 12, 12, 0.85);
   --nav-border: rgba(255, 255, 255, 0.06);
+
+  /* Error / Validation states */
+  --error: #F87171;
+  --error-bg: #450A0A;
+  --error-border: #991B1B;
 }
 
 /* --- Reset & Base --- */
@@ -1505,6 +1515,27 @@ input, textarea, select {
   box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
 }
 
+/* Invalid / Error states */
+.form-field__input.error,
+.form-field__select.error,
+.form-field__textarea.error {
+  border-color: var(--error) !important;
+  background: var(--error-bg);
+}
+
+.form-field__input.error:focus,
+.form-field__select.error:focus,
+.form-field__textarea.error:focus {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+}
+
+[data-theme="dark"] .form-field__input.error:focus,
+[data-theme="dark"] .form-field__select.error:focus,
+[data-theme="dark"] .form-field__textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+}
+
 .form-field__input::placeholder,
 .form-field__textarea::placeholder {
   color: var(--text-tertiary);
@@ -1792,8 +1823,28 @@ section[id] {
 .toast__icon {
   width: 20px;
   height: 20px;
-  color: #059669;
+  color: currentColor;
   flex-shrink: 0;
+}
+
+.toast--success {
+  border-color: rgba(5, 150, 105, 0.2);
+}
+
+.toast--success .toast__icon {
+  color: #059669;
+}
+
+[data-theme="dark"] .toast--success .toast__icon {
+  color: #34D399;
+}
+
+.toast--error {
+  border-color: var(--error-border);
+}
+
+.toast--error .toast__icon {
+  color: var(--error);
 }
 
 .toast__text {
