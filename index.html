@@ -3,622 +3,1090 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayu — WhatsApp Outpatient Flow for Hospitals</title>
-  <meta name="description" content="Ayu coordinates hospital outpatient flow through WhatsApp — reducing unnecessary travel, blind waiting times, and repeat trips for lab reports.">
-  <meta name="keywords" content="hospital patient flow, whatsapp health, OPD queues India, healthcare technology, patient travel burden">
-  <meta name="author" content="Ayu">
-  <meta property="og:title" content="Ayu — WhatsApp Outpatient Flow for Hospitals">
-  <meta property="og:description" content="Ayu coordinates hospital outpatient flow through WhatsApp — reducing unnecessary travel, blind waiting times, and repeat trips for lab reports.">
+  <title>AYU — Healthcare Help, Right Inside WhatsApp</title>
+  <meta name="description" content="AYU brings healthcare to the one app people already know: WhatsApp. Understand lab reports, manage medicine routines, get reminders in a family member's voice, and keep records organized. 300+ active users across 30 clinics.">
+  <meta name="keywords" content="AYU healthcare, WhatsApp healthcare assistant, medicine reminders, lab report explanation, voice health assistant, elder care India, health records WhatsApp">
+  <meta name="author" content="AYU Health">
+  
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:title" content="AYU — Healthcare Help, Right Inside WhatsApp">
+  <meta property="og:description" content="Simple, voice-guided healthcare assistance for older adults and families. Understand reports, manage medicines, and organize records directly in WhatsApp.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0F766E">
+  <meta property="og:url" content="https://ayuhealth.in">
+  <meta name="theme-color" content="#128C7E">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23128C7E'/><path d='M30 50h40M50 30v40' stroke='%23ffffff' stroke-width='10' stroke-linecap='round'/></svg>">
+
+  <!-- Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬤</text></svg>">
 </head>
 <body>
+
   <!-- ============================================================
-       NAVIGATION
+       NAVIGATION BAR
        ============================================================ -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="#" class="nav__logo" aria-label="Ayu — Home">
+      <a href="#" class="nav__brand" aria-label="AYU Healthcare Home">
+        <div class="nav__logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20"/>
+          </svg>
+        </div>
         <span class="nav__logo-text">ayu</span>
-        <span class="nav__logo-dot" aria-hidden="true"></span>
+        <span class="nav__beta-badge">300+ Active Users</span>
       </a>
 
       <ul class="nav__links" role="list">
-        <li><a href="#problem" class="nav__link">The Burden</a></li>
-        <li><a href="#vision" class="nav__link">How it works</a></li>
-        <li><a href="#audience" class="nav__link">Who it's for</a></li>
-        <li><a href="#status" class="nav__link">Stage</a></li>
+        <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
+        <li><a href="#demo" class="nav__link">Product Preview</a></li>
+        <li><a href="#features" class="nav__link">Features</a></li>
+        <li><a href="#audience" class="nav__link">Who It's For</a></li>
+        <li><a href="#emergency" class="nav__link">Emergency Use</a></li>
+        <li><a href="#trust" class="nav__link">Traction</a></li>
+        <li><a href="#faq" class="nav__link">FAQ</a></li>
       </ul>
 
       <div class="nav__actions">
-        <button class="nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <!-- Sun icon (shown in dark mode) -->
-          <svg class="icon-sun" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button class="nav__theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
-          <!-- Moon icon (shown in light mode) -->
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
-        <a href="#waitlist" class="nav__cta">Partner with us</a>
-      </div>
 
-      <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20would%20like%20to%20get%20started" target="_blank" rel="noopener" class="nav__cta btn btn--whatsapp" id="navPrimaryCta">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          Try AYU on WhatsApp
+        </a>
+
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
 
+    <!-- Mobile Drawer -->
     <div class="nav__mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-      <a href="#problem" class="nav__link">The Burden</a>
-      <a href="#vision" class="nav__link">How it works</a>
-      <a href="#audience" class="nav__link">Who it's for</a>
-      <a href="#status" class="nav__link">Stage</a>
-      <a href="#waitlist" class="nav__mobile-cta">Partner with us</a>
+      <a href="#how-it-works" class="nav__link">How It Works</a>
+      <a href="#demo" class="nav__link">Product Preview</a>
+      <a href="#features" class="nav__link">Features</a>
+      <a href="#audience" class="nav__link">Who It's For</a>
+      <a href="#emergency" class="nav__link">Emergency Use</a>
+      <a href="#trust" class="nav__link">Traction</a>
+      <a href="#faq" class="nav__link">FAQ</a>
+      <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20would%20like%20to%20get%20started" target="_blank" rel="noopener" class="nav__mobile-cta btn btn--whatsapp">
+        Open AYU in WhatsApp
+      </a>
     </div>
   </nav>
 
-  <!-- ============================================================
-       HERO SECTION
-       ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg-glow" aria-hidden="true"></div>
-    <div class="hero__grid">
-      <div class="hero__content reveal">
-        <p class="hero__eyebrow">
-          <span class="hero__eyebrow-stage">Early validation</span>
-          <span class="hero__eyebrow-detail">Tackling hospital queue fatigue</span>
-        </p>
-        <h1 class="hero__title">
-          A hospital visit shouldn't mean<br>
-          <span class="hero__title-accent">a 100km travel burden.</span>
-        </h1>
-        <p class="hero__description">
-          Ayu coordinates outpatient flow through WhatsApp. We help hospitals manage bookings, send live turn estimates, collect fees, and deliver reports in one familiar thread — so patients don't travel blindly or wait in crowded lobbies.
-        </p>
-        <div class="hero__actions">
-          <a href="#waitlist" class="btn btn--primary" id="heroCta">
-            Request early pilot access
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  <main>
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__container">
+        <div class="hero__layout">
+          <div class="hero__content reveal">
+            <div class="hero__badge">
+              <span class="hero__badge-pulse"></span>
+              <span>WhatsApp-First Healthcare Assistant</span>
+              <span class="hero__badge-sep">·</span>
+              <span class="hero__badge-meta">Beta Complete</span>
+            </div>
+
+            <h1 class="hero__title">
+              Healthcare help, right inside <span class="hero__title-highlight">WhatsApp.</span>
+            </h1>
+
+            <p class="hero__description">
+              AYU helps older adults and families understand lab reports, manage daily medicines, organize records, and receive reminders in a familiar chat experience — with voice in your local language.
+            </p>
+
+            <div class="hero__actions">
+              <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20would%20like%20to%20try%20AYU%20for%20my%20family" target="_blank" rel="noopener" class="btn btn--whatsapp btn--hero" id="heroPrimaryCta">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span>Get AYU on WhatsApp</span>
+              </a>
+              <a href="#how-it-works" class="hero__secondary-link">
+                <span>See how it works</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <div class="hero__guarantees">
+              <div class="hero__guarantee-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Zero new apps to download</span>
+              </div>
+              <div class="hero__guarantee-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Works in Hindi, Telugu, Tamil & more</span>
+              </div>
+              <div class="hero__guarantee-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Free for families</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Realistic WhatsApp UI Preview -->
+          <div class="hero__visual reveal reveal-delay-1" id="heroVisual">
+            <div class="wa-phone">
+              <div class="wa-phone__notch"></div>
+              <div class="wa-phone__screen">
+                <!-- WhatsApp Header -->
+                <div class="wa-header">
+                  <div class="wa-header__left">
+                    <div class="wa-avatar">
+                      <div class="wa-avatar__img">ayu</div>
+                      <span class="wa-avatar__online-dot"></span>
+                    </div>
+                    <div class="wa-header__info">
+                      <div class="wa-header__name">AYU Healthcare Assistant <svg class="wa-verified-icon" viewBox="0 0 24 24" fill="#25D366" width="14" height="14"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                      <div class="wa-header__status">Online · Connected to 30 Clinics</div>
+                    </div>
+                  </div>
+                  <div class="wa-header__actions">
+                    <button class="wa-header__btn" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
+                    <button class="wa-header__btn" aria-label="Options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+                  </div>
+                </div>
+
+                <!-- Chat Body with Real WhatsApp Texture -->
+                <div class="wa-body">
+                  <div class="wa-date-pill">Today</div>
+
+                  <!-- User uploads report -->
+                  <div class="wa-msg wa-msg--outgoing">
+                    <div class="wa-msg__media">
+                      <div class="wa-doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                      </div>
+                      <div class="wa-doc-info">
+                        <span class="wa-doc-title">HbA1c_BloodReport_Dec.pdf</span>
+                        <span class="wa-doc-size">1.4 MB · PDF</span>
+                      </div>
+                    </div>
+                    <div class="wa-msg__text">Ayu, please explain what this blood test report says for my father?</div>
+                    <div class="wa-msg__meta">
+                      <span>10:42 AM</span>
+                      <span class="wa-ticks">✓✓</span>
+                    </div>
+                  </div>
+
+                  <!-- AYU Reply -->
+                  <div class="wa-msg wa-msg--incoming">
+                    <div class="wa-msg__author">AYU Assistant</div>
+                    <div class="wa-msg__text">
+                      <strong>Namaste Ramesh! Here is the summary in simple words:</strong><br>
+                      • <strong>Blood Sugar (HbA1c): 6.8%</strong> (Well-controlled; doctor's target is &lt; 7.0%)<br>
+                      • <strong>Kidney Profile (Creatinine): 0.9 mg/dL</strong> (Completely Normal)<br>
+                      <span class="wa-highlight-tag">No emergency flags detected.</span>
+                    </div>
+                    <div class="wa-msg__meta">
+                      <span>10:42 AM</span>
+                    </div>
+                  </div>
+
+                  <!-- Playable Voice Note in Chat -->
+                  <div class="wa-msg wa-msg--incoming wa-msg--voice">
+                    <div class="wa-voice-card">
+                      <button class="wa-voice-play-btn" id="heroVoicePlayBtn" aria-label="Play voice note explanation">
+                        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        <svg class="icon-pause" style="display:none;" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                      </button>
+                      <div class="wa-voice-waveform" id="heroWaveform">
+                        <span style="height:40%"></span><span style="height:70%"></span><span style="height:100%"></span><span style="height:60%"></span><span style="height:85%"></span><span style="height:45%"></span><span style="height:90%"></span><span style="height:65%"></span><span style="height:35%"></span><span style="height:80%"></span><span style="height:50%"></span><span style="height:95%"></span><span style="height:70%"></span><span style="height:40%"></span><span style="height:60%"></span><span style="height:30%"></span>
+                      </div>
+                      <span class="wa-voice-duration" id="heroVoiceDuration">0:24</span>
+                    </div>
+                    <div class="wa-voice-caption">
+                      <span class="wa-lang-tag">Hindi Voice Note</span> “नमस्ते रमेश जी, आपके पिताजी की शुगर रिपोर्ट सामान्य है...”
+                    </div>
+                    <div class="wa-msg__meta">
+                      <span>10:43 AM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- WhatsApp Input Mockup -->
+                <div class="wa-footer-bar">
+                  <div class="wa-input-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    <span>Message AYU...</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  </div>
+                  <div class="wa-mic-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             TRUST PROOF STACK BAR (Directly below hero)
+             ============================================================ -->
+        <div class="hero__trust-bar reveal">
+          <div class="trust-bar__header">
+            <span class="trust-bar__title">Validated in local healthcare networks</span>
+            <span class="trust-bar__badge">Live Deployment</span>
+          </div>
+          <div class="trust-bar__grid">
+            <div class="trust-stat">
+              <div class="trust-stat__num">300+</div>
+              <div class="trust-stat__label">Active Patients & Families</div>
+            </div>
+            <div class="trust-stat">
+              <div class="trust-stat__num">30</div>
+              <div class="trust-stat__label">Local Partner Clinics</div>
+            </div>
+            <div class="trust-stat">
+              <div class="trust-stat__num">15</div>
+              <div class="trust-stat__label">Diagnostic Laboratories</div>
+            </div>
+            <div class="trust-stat">
+              <div class="trust-stat__num">22</div>
+              <div class="trust-stat__label">Partner Pharmacies</div>
+            </div>
+            <div class="trust-stat trust-stat--highlight">
+              <div class="trust-stat__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                Completed
+              </div>
+              <div class="trust-stat__label">Open Beta Successfully Concluded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROBLEM / HUMAN EMPATHY SECTION
+         ============================================================ -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <div class="problem__header reveal">
+          <span class="section-tag">The Real Challenge</span>
+          <h2 class="section-title">Healthcare systems are built for experts,<br>not for families or older adults.</h2>
+          <p class="section-subtitle">
+            When someone falls sick, managing the day-to-day care shouldn't feel like navigating a maze of confusing portals, illegible reports, and scattered paper files.
+          </p>
+        </div>
+
+        <div class="problem__grid">
+          <div class="problem-card reveal">
+            <div class="problem-card__icon-box problem-card__icon-box--orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+            </div>
+            <h3 class="problem-card__title">Reports are hard to understand</h3>
+            <p class="problem-card__text">
+              Diagnostic test results are written in technical medical jargon. Older parents and anxious caregivers spend hours worrying without knowing whether a value is safe or serious.
+            </p>
+          </div>
+
+          <div class="problem-card reveal reveal-delay-1">
+            <div class="problem-card__icon-box problem-card__icon-box--red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="problem-card__title">Medication routines get missed</h3>
+            <p class="problem-card__text">
+              Managing 4 to 6 different pills a day across before-food and after-food timings is confusing. Doses get skipped, doubled, or taken at the wrong time of day.
+            </p>
+          </div>
+
+          <div class="problem-card reveal reveal-delay-2">
+            <div class="problem-card__icon-box problem-card__icon-box--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="problem-card__title">Records are scattered everywhere</h3>
+            <p class="problem-card__text">
+              Prescriptions, lab slips, and discharge summaries end up buried across plastic files, paper folders, and gallery photos, impossible to locate when visiting a new clinic.
+            </p>
+          </div>
+
+          <div class="problem-card reveal reveal-delay-3">
+            <div class="problem-card__icon-box problem-card__icon-box--purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3 class="problem-card__title">Emergencies create panic</h3>
+            <p class="problem-card__text">
+              During an urgent medical event, there is no time to remember app passwords or search through paper stacks for allergy history and current active medication lists.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INTERACTIVE PRODUCT DEMO / 5 USE CASES
+         ============================================================ -->
+    <section class="demo" id="demo">
+      <div class="container">
+        <div class="demo__header reveal">
+          <span class="section-tag">Interactive Preview</span>
+          <h2 class="section-title">See how AYU handles real daily care.</h2>
+          <p class="section-subtitle">
+            Click any capability below to see the exact WhatsApp interaction experience.
+          </p>
+        </div>
+
+        <div class="demo__layout reveal">
+          <!-- Tab selector list -->
+          <div class="demo__tabs" role="tablist" aria-label="Product use cases">
+            <button class="demo__tab active" data-scenario="report" role="tab" aria-selected="true" id="tab-report">
+              <div class="demo__tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+              </div>
+              <div class="demo__tab-text">
+                <span class="demo__tab-title">1. Uploading a Lab Report</span>
+                <span class="demo__tab-desc">Instant plain-English summary & flag detection</span>
+              </div>
+            </button>
+
+            <button class="demo__tab" data-scenario="voice" role="tab" aria-selected="false" id="tab-voice">
+              <div class="demo__tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </div>
+              <div class="demo__tab-text">
+                <span class="demo__tab-title">2. Voice Notes in Local Languages</span>
+                <span class="demo__tab-desc">Spoken guidance in Hindi, Telugu, Tamil & more</span>
+              </div>
+            </button>
+
+            <button class="demo__tab" data-scenario="reminder" role="tab" aria-selected="false" id="tab-reminder">
+              <div class="demo__tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="demo__tab-text">
+                <span class="demo__tab-title">3. Smart Medication Reminders</span>
+                <span class="demo__tab-desc">Exact dosage, timing, and pill photos</span>
+              </div>
+            </button>
+
+            <button class="demo__tab" data-scenario="records" role="tab" aria-selected="false" id="tab-records">
+              <div class="demo__tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+              <div class="demo__tab-text">
+                <span class="demo__tab-title">4. Continuous Health Records</span>
+                <span class="demo__tab-desc">Auto-filed history forwardable to any doctor</span>
+              </div>
+            </button>
+
+            <button class="demo__tab" data-scenario="family" role="tab" aria-selected="false" id="tab-family">
+              <div class="demo__tab-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="demo__tab-text">
+                <span class="demo__tab-title">5. Loved Ones' Voice Reminders</span>
+                <span class="demo__tab-desc">Reminders spoken in son/daughter's recorded voice</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Active Mockup Preview Display -->
+          <div class="demo__display">
+            <div class="wa-mockup-frame">
+              <div class="wa-mockup-header">
+                <div class="wa-mockup-contact">
+                  <div class="wa-avatar wa-avatar--sm">
+                    <span>ayu</span>
+                  </div>
+                  <div>
+                    <div class="wa-mockup-title">AYU Healthcare Assistant <svg viewBox="0 0 24 24" fill="#25D366" width="13" height="13"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div class="wa-mockup-sub" id="demoScenarioStatus">Scenario: Lab Report Breakdown</div>
+                  </div>
+                </div>
+                <div class="wa-mockup-badge">Live Interactive Mode</div>
+              </div>
+
+              <!-- Container where scenario messages render -->
+              <div class="wa-mockup-chat" id="demoChatContainer" role="tabpanel">
+                <!-- Dynamically populated via script.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CORE BENEFITS / EDITORIAL ASYMMETRIC FEATURES
+         ============================================================ -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="features__header reveal">
+          <span class="section-tag">Built for Daily Life</span>
+          <h2 class="section-title">Designed for clarity, comfort, and peace of mind.</h2>
+          <p class="section-subtitle">
+            Every capability in AYU solves a tangible, everyday obstacle faced by families managing health routines.
+          </p>
+        </div>
+
+        <div class="features__editorial">
+          <!-- Feature 1: Voice in Local Languages -->
+          <div class="editorial-card editorial-card--featured reveal">
+            <div class="editorial-card__content">
+              <div class="feature-tag">Voice & Vernacular</div>
+              <h3 class="editorial-card__title">Hear your medical reports explained in your mother tongue.</h3>
+              <p class="editorial-card__desc">
+                No more struggling with dense clinical metrics or tiny English fonts. Send a picture of any blood test or prescription, and AYU sends a clear 30-second voice note in Hindi, Telugu, Tamil, Kannada, Marathi, or Bengali explaining what it means for your daily routine.
+              </p>
+              <div class="feature-pills">
+                <span class="feature-pill">Hindi</span>
+                <span class="feature-pill">Telugu</span>
+                <span class="feature-pill">Tamil</span>
+                <span class="feature-pill">Kannada</span>
+                <span class="feature-pill">Bengali</span>
+                <span class="feature-pill">Marathi</span>
+              </div>
+            </div>
+            <div class="editorial-card__visual">
+              <div class="voice-card-preview">
+                <div class="voice-preview-header">
+                  <span class="voice-preview-badge">Voice Guidance</span>
+                  <span class="voice-preview-time">0:28</span>
+                </div>
+                <p class="voice-preview-quote">
+                  “అమ్మా, మీ లిపిడ్ ప్రొఫైల్ రిపోర్ట్ వచ్చింది. కొలెస్ట్రాల్ సాధారణంగానే ఉంది, రాత్రి వేళ మాత్ర వేసుకోవడం మర్చిపోకండి.”
+                </p>
+                <div class="voice-preview-translation">
+                  (Telugu: "Mom, your lipid report is ready. Cholesterol is normal, remember to take your evening pill.")
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Smart Medicine Routine -->
+          <div class="editorial-card reveal">
+            <div class="editorial-card__content">
+              <div class="feature-tag">Medication Adherence</div>
+              <h3 class="editorial-card__title">Gentle, precise reminders with pill photos and dosage timings.</h3>
+              <p class="editorial-card__desc">
+                Never second-guess whether a pill was taken before or after breakfast. AYU delivers visual, timed reminders on WhatsApp with exact dosage instructions so elders stay on track without stress.
+              </p>
+              <ul class="feature-bullets">
+                <li>Visual pill photos to prevent mix-ups</li>
+                <li>Before / After meals synchronization</li>
+                <li>Caregiver notification if a dose is skipped</li>
+              </ul>
+            </div>
+            <div class="editorial-card__visual">
+              <div class="med-alert-box">
+                <div class="med-alert-pill">
+                  <div class="med-alert-icon">💊</div>
+                  <div class="med-alert-meta">
+                    <strong>Metformin 500mg</strong>
+                    <span>1 tablet after dinner · 8:30 PM</span>
+                  </div>
+                </div>
+                <div class="med-alert-status">
+                  <span class="status-check">✓ Confirmed Taken</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 3: Loved Ones' Voice Alerts -->
+          <div class="editorial-card reveal">
+            <div class="editorial-card__content">
+              <div class="feature-tag">Family Connection</div>
+              <h3 class="editorial-card__title">Reminders spoken in a daughter's or son's familiar voice.</h3>
+              <p class="editorial-card__desc">
+                Elders often ignore generic automated robotic tones. With AYU, family members can record personalized audio prompts once. AYU delivers them on schedule, bringing warm reassurance to every daily reminder.
+              </p>
+              <ul class="feature-bullets">
+                <li>Proven higher adherence with familiar family voices</li>
+                <li>Easy 1-tap voice recording on WhatsApp</li>
+                <li>Emotional comfort for elders living independently</li>
+              </ul>
+            </div>
+            <div class="editorial-card__visual">
+              <div class="family-voice-box">
+                <div class="family-voice-header">
+                  <div class="family-avatar">👩</div>
+                  <div>
+                    <strong>Daughter's Voice Note</strong>
+                    <span>Pooja (Bangalore) → Dad</span>
+                  </div>
+                </div>
+                <p class="family-voice-text">“Papa, please take your BP tablet now and drink a glass of water!”</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 4: Continuous Health Records -->
+          <div class="editorial-card editorial-card--wide reveal">
+            <div class="editorial-card__content">
+              <div class="feature-tag">Digital Health Locker</div>
+              <h3 class="editorial-card__title">Every lab slip, scan, and prescription organized chronologically.</h3>
+              <p class="editorial-card__desc">
+                Forget keeping bulky cardboard files. Whenever a doctor writes a prescription or a lab gives you a test sheet, simply snap a picture and send it to AYU. It is automatically indexed by date, doctor name, and condition — ready to share in 1 tap during your next clinic visit.
+              </p>
+              <div class="records-tag-row">
+                <span class="rec-pill">📁 30 Connected Clinics</span>
+                <span class="rec-pill">🧪 15 Diagnostic Labs</span>
+                <span class="rec-pill">💊 22 Pharmacies</span>
+                <span class="rec-pill">🔒 End-to-End Encrypted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHO IT IS FOR (3 AUDIENCE GROUPS)
+         ============================================================ -->
+    <section class="audience" id="audience">
+      <div class="container">
+        <div class="audience__header reveal">
+          <span class="section-tag">Designed for Everyone</span>
+          <h2 class="section-title">Built for those who need simplicity most.</h2>
+          <p class="section-subtitle">
+            No technical learning curve. If you can send a voice note on WhatsApp, you can manage your entire healthcare with AYU.
+          </p>
+        </div>
+
+        <div class="audience__grid">
+          <!-- Card 1: Older Adults -->
+          <div class="audience-card reveal">
+            <div class="audience-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="audience-card__group">For Older Adults</div>
+            <h3 class="audience-card__title">Healthcare that speaks to you, not at you.</h3>
+            <p class="audience-card__text">
+              Zero complicated apps, logins, or small text menus. Receive voice messages in your regional language, simple audio reminders, and easy-to-follow medicine schedules in the app you already open every morning.
+            </p>
+            <div class="audience-card__highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% voice & chat operated</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Family Caregivers -->
+          <div class="audience-card reveal reveal-delay-1">
+            <div class="audience-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="audience-card__group">For Family Caregivers</div>
+            <h3 class="audience-card__title">Total peace of mind, even from miles away.</h3>
+            <p class="audience-card__text">
+              Monitor your parents' health routines remotely. Get instant alerts when test reports arrive, receive daily confirmation that medicines were taken, and record personal reminders for your loved ones.
+            </p>
+            <div class="audience-card__highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Remote caregiver visibility</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Non-tech Savvy / Vernacular Users -->
+          <div class="audience-card reveal reveal-delay-2">
+            <div class="audience-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="audience-card__group">For Vernacular & Non-Tech Users</div>
+            <h3 class="audience-card__title">Zero medical jargon. Zero app downloads.</h3>
+            <p class="audience-card__text">
+              Designed specifically for people uncomfortable with English healthcare portals and complex forms. Send a quick voice message and receive clear, respectful guidance in your natural language.
+            </p>
+            <div class="audience-card__highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Pure vernacular accessibility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS (SIMPLE 3 STEPS)
+         ============================================================ -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="how-it-works__header reveal">
+          <span class="section-tag">Simple 3-Step Setup</span>
+          <h2 class="section-title">Get started in under 30 seconds.</h2>
+          <p class="section-subtitle">
+            No signup forms, no passwords to memorize, and no app store installs.
+          </p>
+        </div>
+
+        <div class="how-it-works__grid">
+          <div class="step-card reveal">
+            <div class="step-card__num">1</div>
+            <div class="step-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="step-card__title">Message AYU on WhatsApp</h3>
+            <p class="step-card__text">
+              Simply click our WhatsApp link or scan the QR code to say “Hi”. AYU greets you immediately in your preferred language.
+            </p>
+          </div>
+
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-card__num">2</div>
+            <div class="step-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3 class="step-card__title">Send a Report or Medicine Photo</h3>
+            <p class="step-card__text">
+              Snap a picture of your paper prescription, lab result sheet, or pill strip, or send a quick voice query about your routine.
+            </p>
+          </div>
+
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-card__num">3</div>
+            <div class="step-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="step-card__title">Get Voice Guidance & Reminders</h3>
+            <p class="step-card__text">
+              AYU provides instant voice explanations, organizes your medical file, and automatically sets up timely daily pill reminders.
+            </p>
+          </div>
+        </div>
+
+        <div class="how-it-works__cta-row reveal">
+          <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20want%20to%20get%20started" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Message AYU on WhatsApp</span>
           </a>
-          <a href="#vision" class="btn btn--secondary">
-            See how it works
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Abstract Interface Preview -->
-      <div class="hero__visual reveal reveal-delay-2">
-        <div class="hero__mockup">
-          <div class="hero__mockup-card">
-            <div class="hero__mockup-header">
-              <div class="hero__mockup-avatar">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <div class="hero__mockup-info">
-                <div class="hero__mockup-title">Ayu Chat Assistant</div>
-                <div class="hero__mockup-subtitle">WhatsApp Integration Thread</div>
-              </div>
-              <div class="hero__mockup-status">Online</div>
+    <!-- ============================================================
+         EMERGENCY USEFULNESS SECTION (Key Differentiator)
+         ============================================================ -->
+    <section class="emergency" id="emergency">
+      <div class="container">
+        <div class="emergency__inner reveal">
+          <div class="emergency__content">
+            <div class="emergency__badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
+              <span>Emergency-Ready Accessibility</span>
             </div>
-            <div class="hero__mockup-rows">
-              <div class="hero__mockup-row">
-                <div class="hero__mockup-row-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h2 class="emergency__title">When health situations become urgent, familiarity matters.</h2>
+            <p class="emergency__desc">
+              During medical emergencies, stress is high. Nobody should have to remember app passwords, navigate 5 submenus, or search physical cabinets. AYU works through WhatsApp, so patients and paramedics can access blood group, active prescriptions, allergies, and emergency doctor contacts in seconds.
+            </p>
+
+            <div class="emergency__points">
+              <div class="emergency__point">
+                <div class="emergency__point-icon">⚡</div>
+                <div>
+                  <strong>Instant 3-Second Access</strong>
+                  <p>Type "Emergency" in your AYU thread to instantly pull up the critical health summary card.</p>
                 </div>
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">OPD Check-in Confirmed</div>
-                  <div class="hero__mockup-row-meta">General Medicine · Token #14 · Est. turn: 11:20 AM</div>
+              </div>
+              <div class="emergency__point">
+                <div class="emergency__point-icon">📍</div>
+                <div>
+                  <strong>Forwardable in 1 Tap to ER Doctors</strong>
+                  <p>Share complete clinical history straight to the attending emergency physician on WhatsApp.</p>
                 </div>
-                <div class="hero__mockup-row-badge">Confirmed</div>
-              </div>
-              <div class="hero__mockup-row">
-                <div class="hero__mockup-row-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                </div>
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">Queue Turn Alert</div>
-                  <div class="hero__mockup-row-meta">3 patients ahead of you. Head to Room 4.</div>
-                </div>
-                <div class="hero__mockup-row-badge">Active</div>
-              </div>
-              <div class="hero__mockup-row">
-                <div class="hero__mockup-row-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                </div>
-                <div class="hero__mockup-row-text">
-                  <div class="hero__mockup-row-label">Lab Reports Ready</div>
-                  <div class="hero__mockup-row-meta">Click to download: CBC_Blood_Report.pdf</div>
-                </div>
-                <div class="hero__mockup-row-badge">PDF</div>
               </div>
             </div>
           </div>
 
-          <!-- Floating accent card -->
-          <div class="hero__float-card">
-            <div class="hero__float-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
-            <div>
-              <div class="hero__float-text">Repeat trips avoided</div>
-              <div class="hero__float-sub">Reports sent straight to WhatsApp</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PROBLEM SECTION
-       ============================================================ -->
-  <section class="problem" id="problem">
-    <div class="problem__header reveal">
-      <span class="section-label">The Burden</span>
-      <h2 class="section-heading">A 100km journey for a 15-minute consultation.</h2>
-      <p class="section-subheading">
-        For patients traveling from distant towns, reaching the hospital is only the first hurdle. The overhead inside the outpatient department consumes their day, savings, and energy.
-      </p>
-    </div>
-
-    <div class="problem__grid">
-      <div class="problem__card reveal reveal-delay-1" id="problem-wait">
-        <div class="problem__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3 class="problem__card-title">Long-distance travel</h3>
-        <p class="problem__card-text">Patients and their family members travel hours by bus or train, sacrificing a daily wage and paying for transit just to get clinical access.</p>
-      </div>
-
-      <div class="problem__card reveal reveal-delay-2" id="problem-flow">
-        <div class="problem__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 class="problem__card-title">Blind lobby waiting</h3>
-        <p class="problem__card-text">They stand in lines to register, pay, and get tokens. They wait for hours in congested corridors without knowing when their doctor is ready.</p>
-      </div>
-
-      <div class="problem__card reveal reveal-delay-3" id="problem-comm">
-        <div class="problem__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3 class="problem__card-title">Brief consultations</h3>
-        <p class="problem__card-text">After a full day spent traveling and waiting, the actual slot with the specialist lasts only 15 to 20 minutes before they start their trip back.</p>
-      </div>
-
-      <div class="problem__card reveal reveal-delay-4" id="problem-stress">
-        <div class="problem__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
-        </div>
-        <h3 class="problem__card-title">Repeat report trips</h3>
-        <p class="problem__card-text">If diagnostics are ordered, patients must return another day, pay for travel again, and lose another day of work simply to show paper reports to the doctor.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       VISION SECTION
-       ============================================================ -->
-  <section class="vision" id="vision">
-    <div class="vision__layout">
-      <div class="vision__content reveal">
-        <span class="section-label">How it works</span>
-        <h2 class="section-heading">Zero new apps.<br>Built entirely on WhatsApp.</h2>
-        <p class="section-subheading">
-          Ayu connects the hospital's internal workflow systems with the messaging app patients already use every day. We make outpatient coordination simple, conversational, and direct.
-        </p>
-        <div class="vision__features">
-          <div class="vision__feature">
-            <div class="vision__feature-marker">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <div class="vision__feature-text">Direct check-in & token setup</div>
-              <p class="vision__feature-desc">Scan a QR code at the desk or text the hospital number to register and confirm arrival instantly.</p>
-            </div>
-          </div>
-          <div class="vision__feature">
-            <div class="vision__feature-marker">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <div class="vision__feature-text">Just-in-time turn updates</div>
-              <p class="vision__feature-desc">Live queue status tells you how many people are ahead, letting you wait in comfort elsewhere.</p>
-            </div>
-          </div>
-          <div class="vision__feature">
-            <div class="vision__feature-marker">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <div class="vision__feature-text">UPI fee payments in chat</div>
-              <p class="vision__feature-desc">Receive diagnostic and billing links in the thread, make secure payments, and receive immediate receipts.</p>
-            </div>
-          </div>
-          <div class="vision__feature">
-            <div class="vision__feature-marker">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <div class="vision__feature-text">Digital reports on demand</div>
-              <p class="vision__feature-desc">Lab results and digital prescription copies are delivered as PDFs inside the thread as soon as they are ready.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="vision__visual reveal reveal-delay-2">
-        <div class="vision__graphic">
-          <div class="vision__graphic-flow">
-            <div class="vision__flow-step">
-              <div class="vision__flow-num">1</div>
-              <div class="vision__flow-label">Patient checks in via WhatsApp</div>
-            </div>
-            <div class="vision__flow-connector" aria-hidden="true"></div>
-            <div class="vision__flow-step">
-              <div class="vision__flow-num">2</div>
-              <div class="vision__flow-label">Live token and queue estimate sent</div>
-            </div>
-            <div class="vision__flow-connector" aria-hidden="true"></div>
-            <div class="vision__flow-step">
-              <div class="vision__flow-num">3</div>
-              <div class="vision__flow-label">Consultation begins on schedule</div>
-            </div>
-            <div class="vision__flow-connector" aria-hidden="true"></div>
-            <div class="vision__flow-step">
-              <div class="vision__flow-num">4</div>
-              <div class="vision__flow-label">Diagnostics paid via UPI in-chat</div>
-            </div>
-            <div class="vision__flow-connector" aria-hidden="true"></div>
-            <div class="vision__flow-step">
-              <div class="vision__flow-num">5</div>
-              <div class="vision__flow-label">PDF reports delivered to same thread</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       WHY NOW SECTION
-       ============================================================ -->
-  <section class="why-now" id="why-now">
-    <div class="why-now__inner">
-      <div class="why-now__header reveal">
-        <span class="section-label">Why Now</span>
-        <h2 class="section-heading">The infrastructure must adapt.</h2>
-        <p class="section-subheading">
-          Patients don't need another medical portal or heavy app. They need real-time operational transparency in the application they already use daily.
-        </p>
-      </div>
-
-      <div class="why-now__grid">
-        <div class="why-now__card reveal reveal-delay-1" id="why-digital">
-          <div class="why-now__card-number">01</div>
-          <h3 class="why-now__card-title">Ubiquity of WhatsApp</h3>
-          <p class="why-now__card-text">Virtually every family in India communicates via WhatsApp. By delivering tokens and reports directly to the chat window, we eliminate the friction of app downloads.</p>
-        </div>
-        <div class="why-now__card reveal reveal-delay-2" id="why-ops">
-          <div class="why-now__card-number">02</div>
-          <h3 class="why-now__card-title">Rising cost of travel overhead</h3>
-          <p class="why-now__card-text">Failing to optimize visit times translates directly to lost daily wages and expensive transport fares. Minimizing wait times is an economic necessity.</p>
-        </div>
-        <div class="why-now__card reveal reveal-delay-3" id="why-comm">
-          <div class="why-now__card-number">03</div>
-          <h3 class="why-now__card-title">Lobby density fatigue</h3>
-          <p class="why-now__card-text">Crowded waiting areas generate noise, confusion, and operational blockages. Moving check-ins and test reporting online relieves physical hospital spaces.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       WHO IT'S FOR SECTION
-       ============================================================ -->
-  <section class="audience" id="audience">
-    <div class="audience__inner">
-      <div class="audience__header reveal">
-        <span class="section-label">Who It's For</span>
-        <h2 class="section-heading">Clear benefits for every side.</h2>
-        <p class="section-subheading">
-          By bringing outpatient coordination to the patient's mobile screen, Ayu simplifies life for families, desk workers, and clinical staff alike.
-        </p>
-      </div>
-
-      <div class="audience__grid">
-        <div class="audience__card reveal reveal-delay-1" id="audience-patients">
-          <div class="audience__card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div class="audience__card-label">For Patients</div>
-          <h3 class="audience__card-title">Fewer trips. Clear timelines.</h3>
-          <p class="audience__card-text">Monitor your place in line on WhatsApp. Rest nearby instead of standing in crowded lobbies, and get lab reports sent straight to your phone.</p>
-          <div class="audience__card-features">
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Queue turn estimates on mobile
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              No app download required
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Reports sent directly as PDFs
-            </div>
-          </div>
-        </div>
-
-        <div class="audience__card reveal reveal-delay-2" id="audience-hospitals">
-          <div class="audience__card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <div class="audience__card-label">For Hospitals</div>
-          <h3 class="audience__card-title">Calmer lobbies. Efficient desks.</h3>
-          <p class="audience__card-text">Divert simple queries about queue times and paper pickup to automation. Reduce peak desk congestion and improve general patient satisfaction.</p>
-          <div class="audience__card-features">
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Automated patient status updates
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Real-time OPD entry tracking
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Direct digital billing links
-            </div>
-          </div>
-        </div>
-
-        <div class="audience__card reveal reveal-delay-3" id="audience-doctors">
-          <div class="audience__card-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <div class="audience__card-label">For Doctors & Staff</div>
-          <h3 class="audience__card-title">Structured slots. Calm OPDs.</h3>
-          <p class="audience__card-text">Reduce corridor noise and frequent reception inquiries. See patients who are pre-checked and walk in precisely when called.</p>
-          <div class="audience__card-features">
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Organized consultation schedule
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Minimized corridor checking
-            </div>
-            <div class="audience__card-feature">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Less manual paper delivery load
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PRE-LAUNCH STATUS SECTION
-       ============================================================ -->
-  <section class="status" id="status">
-    <div class="status__inner">
-      <div class="status__header reveal">
-        <span class="section-label">Where We Are</span>
-        <h2 class="section-heading">Building deliberately.</h2>
-        <p class="section-subheading">
-          Ayu is in its validation and early design phase. We are laying a strong foundation by mapping real patient journeys and hospital workflows.
-        </p>
-      </div>
-
-      <div class="status__timeline reveal reveal-delay-1">
-        <div class="status__step status__step--done">
-          <div class="status__step-line">
-            <div class="status__step-dot"></div>
-            <div class="status__step-connector"></div>
-          </div>
-          <div class="status__step-content">
-            <h3 class="status__step-title">Travel & queue research</h3>
-            <p class="status__step-desc">Documented transit overhead, lost wages, and waiting times for families traveling from rural areas to major district hospitals.</p>
-          </div>
-        </div>
-
-        <div class="status__step status__step--active">
-          <div class="status__step-line">
-            <div class="status__step-dot"></div>
-            <div class="status__step-connector"></div>
-          </div>
-          <div class="status__step-content">
-            <h3 class="status__step-title">WhatsApp integration design</h3>
-            <p class="status__step-desc">Creating the message templates, live estimation algorithms, and report delivery pipelines for a clean chat interface.</p>
-          </div>
-        </div>
-
-        <div class="status__step status__step--upcoming">
-          <div class="status__step-line">
-            <div class="status__step-dot"></div>
-            <div class="status__step-connector"></div>
-          </div>
-          <div class="status__step-content">
-            <h3 class="status__step-title">Hospital pilot discussions</h3>
-            <p class="status__step-desc">Partnering with regional hospitals and outpatient groups to set up early proof-of-concept testing.</p>
-          </div>
-        </div>
-
-        <div class="status__step status__step--upcoming">
-          <div class="status__step-line">
-            <div class="status__step-dot"></div>
-            <div class="status__step-connector"></div>
-          </div>
-          <div class="status__step-content">
-            <h3 class="status__step-title">Integration layer development</h3>
-            <p class="status__step-desc">Building simple data connectors to link Ayu with existing Hospital Information Systems (HIS).</p>
-          </div>
-        </div>
-
-        <div class="status__step status__step--upcoming">
-          <div class="status__step-line">
-            <div class="status__step-dot"></div>
-          </div>
-          <div class="status__step-content">
-            <h3 class="status__step-title">Live pilot launch</h3>
-            <p class="status__step-desc">Deploying the first version in selected clinical lobbies to measure time savings and travel ease.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       WAITLIST / CONTACT SECTION
-       ============================================================ -->
-  <section class="waitlist" id="waitlist">
-    <div class="waitlist__inner">
-      <div class="waitlist__content reveal">
-        <span class="section-label">Partner With Us</span>
-        <h2 class="section-heading">Build a more humane OPD experience.</h2>
-        <p class="section-subheading">
-          We are initiating early pilots with regional hospitals and clinics in India. If you run a hospital department or want to make patient flows less stressful, let's explore a partnership.
-        </p>
-
-        <div class="waitlist__trust">
-          <div class="waitlist__trust-item">
-            <svg class="waitlist__trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Pilot setups are customized for your layout
-          </div>
-          <div class="waitlist__trust-item">
-            <svg class="waitlist__trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Integrates with existing HIS databases
-          </div>
-          <div class="waitlist__trust-item">
-            <svg class="waitlist__trust-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            Personal coordination and rollout support
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal reveal-delay-1">
-        <div class="waitlist__form-wrapper" id="waitlistFormWrapper">
-          <form class="waitlist__form" id="waitlistForm" novalidate>
-            <div class="waitlist__form-row">
-              <div class="form-field">
-                <label class="form-field__label" for="waitlist-name">Full Name</label>
-                <input class="form-field__input" type="text" id="waitlist-name" name="name" placeholder="Your name" required autocomplete="name">
+          <div class="emergency__comparison">
+            <div class="comparison-card comparison-card--bad">
+              <div class="comparison-card__header">
+                <span class="comparison-card__status">Traditional Portals</span>
+                <span class="comparison-card__time">5 - 10 Minutes</span>
               </div>
-              <div class="form-field">
-                <label class="form-field__label" for="waitlist-email">Work Email</label>
-                <input class="form-field__input" type="email" id="waitlist-email" name="email" placeholder="you@hospital.com" required autocomplete="email">
+              <ul class="comparison-list">
+                <li>❌ App download required on new phones</li>
+                <li>❌ Forgotten password & 2FA OTP delays</li>
+                <li>❌ Complex navigation during high stress</li>
+                <li>❌ Hard to export records to attending doctors</li>
+              </ul>
+            </div>
+
+            <div class="comparison-card comparison-card--good">
+              <div class="comparison-card__header">
+                <span class="comparison-card__status">AYU on WhatsApp</span>
+                <span class="comparison-card__time">3 Seconds</span>
+              </div>
+              <ul class="comparison-list">
+                <li>✅ Zero downloads — opens in WhatsApp</li>
+                <li>✅ No passwords — verified phone authentication</li>
+                <li>✅ 1-tap emergency medical ID card</li>
+                <li>✅ Directly forwardable to ER staff & family</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRACTION, TRUST & COMMUNITY TESTIMONIALS
+         ============================================================ -->
+    <section class="trust" id="trust">
+      <div class="container">
+        <div class="trust__header reveal">
+          <span class="section-tag">Proven Traction</span>
+          <h2 class="section-title">Already trusted across 300+ families & 30 clinics.</h2>
+          <p class="section-subtitle">
+            AYU has completed open beta testing and is actively powering daily healthcare routines in local communities.
+          </p>
+        </div>
+
+        <!-- Ecosystem Network Grid -->
+        <div class="ecosystem__grid reveal">
+          <div class="ecosystem-card">
+            <div class="ecosystem-card__num">300+</div>
+            <div class="ecosystem-card__title">Active Patients & Families</div>
+            <div class="ecosystem-card__desc">Using voice reminders and report guidance daily.</div>
+          </div>
+          <div class="ecosystem-card">
+            <div class="ecosystem-card__num">30</div>
+            <div class="ecosystem-card__title">Local Clinics</div>
+            <div class="ecosystem-card__desc">Connecting patient prescriptions and OPD records directly.</div>
+          </div>
+          <div class="ecosystem-card">
+            <div class="ecosystem-card__num">15</div>
+            <div class="ecosystem-card__title">Diagnostic Labs</div>
+            <div class="ecosystem-card__desc">Delivering digital blood and imaging reports with voice summaries.</div>
+          </div>
+          <div class="ecosystem-card">
+            <div class="ecosystem-card__num">22</div>
+            <div class="ecosystem-card__title">Neighborhood Pharmacies</div>
+            <div class="ecosystem-card__desc">Syncing repeat medicine orders and timely refill reminders.</div>
+          </div>
+        </div>
+
+        <!-- Community Stories -->
+        <div class="testimonials__grid reveal">
+          <div class="testimonial-card">
+            <div class="testimonial-card__quote">
+              “My 74-year-old mother lives in Hyderabad while I work in Pune. She doesn't use modern apps, but she opens WhatsApp all the time. Hearing the medicine reminder in my own recorded voice has made sure she never skips her blood pressure tablet.”
+            </div>
+            <div class="testimonial-card__author">
+              <div class="testimonial-avatar">RK</div>
+              <div>
+                <strong>Ramesh K.</strong>
+                <span>Family Caregiver · Hyderabad</span>
               </div>
             </div>
+          </div>
 
-            <div class="waitlist__form-row">
-              <div class="form-field">
-                <label class="form-field__label" for="waitlist-org">Hospital / Organization</label>
-                <input class="form-field__input" type="text" id="waitlist-org" name="organization" placeholder="Hospital or group name" autocomplete="organization">
-              </div>
-              <div class="form-field">
-                <label class="form-field__label" for="waitlist-role">Your Role</label>
-                <select class="form-field__select" id="waitlist-role" name="role" required>
-                  <option value="" disabled selected>Select your role</option>
-                  <option value="hospital-admin">Hospital Administrator / Operator</option>
-                  <option value="doctor">OPD Head / Clinician</option>
-                  <option value="partner">Technology partner / HIS Provider</option>
-                  <option value="investor">Investor / Mentor</option>
-                  <option value="other">Other</option>
-                </select>
+          <div class="testimonial-card">
+            <div class="testimonial-card__quote">
+              “As a clinic physician, half our consultation time used to go into explaining routine lab parameters that caused unnecessary panic. AYU gives our patients clear vernacular audio explanations, making our OPD visits much calmer and more productive.”
+            </div>
+            <div class="testimonial-card__author">
+              <div class="testimonial-avatar">DS</div>
+              <div>
+                <strong>Dr. Sunita Rao</strong>
+                <span>Consultant Physician · 30+ Partner Clinics</span>
               </div>
             </div>
+          </div>
 
-            <div class="form-field">
-              <label class="form-field__label" for="waitlist-message">Message <span>(optional)</span></label>
-              <textarea class="form-field__textarea" id="waitlist-message" name="message" placeholder="Tell us about your clinic setup, patient numbers, or how you want to work with us..." rows="4"></textarea>
+          <div class="testimonial-card">
+            <div class="testimonial-card__quote">
+              “I could never keep track of paper test reports from three different labs. With AYU, I just photograph them on WhatsApp. During my last doctor visit, having every test organized by date saved us 20 minutes.”
             </div>
-
-            <button type="submit" class="waitlist__submit" id="waitlistSubmit">Request pilot access</button>
-            <p class="waitlist__form-note">We answer partnership inquiries within two business days.</p>
-          </form>
-
-          <div class="waitlist__success" id="waitlistSuccess">
-            <div class="waitlist__success-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div class="testimonial-card__author">
+              <div class="testimonial-avatar">AV</div>
+              <div>
+                <strong>Ananya Verma</strong>
+                <span>Managing Chronic Family Care · Delhi NCR</span>
+              </div>
             </div>
-            <h3 class="waitlist__success-title">Let's work together.</h3>
-            <p class="waitlist__success-text">Thank you for your interest in Ayu. We are reviewing incoming partnership requests personally and will reach out shortly. You can also write to us directly at <strong>hello@ayuhealth.in</strong></p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ============================================================
+         INTERACTIVE CHAT SANDBOX / MINI-TESTER
+         ============================================================ -->
+    <section class="sandbox" id="sandbox">
+      <div class="container">
+        <div class="sandbox__header reveal">
+          <span class="section-tag">Interactive Sandbox</span>
+          <h2 class="section-title">Try asking AYU a question right now.</h2>
+          <p class="section-subtitle">
+            Click any sample question to see how AYU responds with warm, plain-language guidance.
+          </p>
+        </div>
+
+        <div class="sandbox__box reveal">
+          <div class="sandbox__presets">
+            <span class="sandbox__presets-label">Try asking:</span>
+            <button class="sandbox-pill active" data-query="cbc">“What does HbA1c 6.8% mean?”</button>
+            <button class="sandbox-pill" data-query="bp">“Remind Dad to take Telmisartan 40mg at 8 PM”</button>
+            <button class="sandbox-pill" data-query="emergency">“Show my emergency health card”</button>
+            <button class="sandbox-pill" data-query="telugu">“Explain in Telugu voice note”</button>
+          </div>
+
+          <div class="sandbox__chat-window" id="sandboxChat">
+            <!-- Sandbox chat conversation rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ SECTION
+         ============================================================ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq__header reveal">
+          <span class="section-tag">Questions & Answers</span>
+          <h2 class="section-title">Frequently asked questions.</h2>
+          <p class="section-subtitle">
+            Everything you need to know about starting with AYU on WhatsApp.
+          </p>
+        </div>
+
+        <div class="faq__list reveal">
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>Do I need to install any new app to use AYU?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>No. AYU works completely within WhatsApp. You do not need to download anything from the App Store or Play Store, memorize new passwords, or update separate software.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>Which languages does AYU support for voice notes?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>AYU supports English, Hindi, Telugu, Tamil, Kannada, Marathi, and Bengali. You can switch your preferred language at any time simply by telling AYU on WhatsApp.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>How does the loved ones' voice reminder feature work?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>A family member (son, daughter, or caregiver) can send a 5-second voice note to AYU saying "Mom, time for your evening medicine". AYU pairs this recording with the scheduled medication alert so your parent hears your warm, familiar voice every day.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>Is AYU free for patients and families?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>Yes. AYU is completely free for individual patients and families to understand reports, receive reminders, and organize records. We partner directly with clinics, diagnostic centers, and pharmacies.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>How does AYU protect health data and privacy?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>All WhatsApp conversations and documents are protected with WhatsApp's end-to-end encryption standards. Your health records are indexed privately and are never sold or shared with advertisers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>I run a clinic, lab, or pharmacy. How can I connect with AYU?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>We are expanding our partner network across India. Clinics and labs can integrate with AYU to send automated digital reports and appointment follow-ups. Contact our partner team at <strong>partners@ayuhealth.in</strong>.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FINAL HIGH-TRUST CTA SECTION
+         ============================================================ -->
+    <section class="final-cta" id="get-started">
+      <div class="container">
+        <div class="final-cta__box reveal">
+          <div class="final-cta__content">
+            <div class="final-cta__badge">
+              <span class="pulse-green"></span>
+              <span>Open Beta Complete · Available on WhatsApp</span>
+            </div>
+            <h2 class="final-cta__title">Start your family's healthcare assistant today.</h2>
+            <p class="final-cta__desc">
+              Bring clarity, voice guidance, and reliable medicine reminders to the app your family already knows and uses every single day.
+            </p>
+            <div class="final-cta__actions">
+              <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20would%20like%20to%20start" target="_blank" rel="noopener" class="btn btn--whatsapp btn--large">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Message AYU on WhatsApp</span>
+              </a>
+            </div>
+            <div class="final-cta__footnote">
+              Free forever for patients · Instant WhatsApp connect · No app installation required
+            </div>
+          </div>
+
+          <div class="final-cta__qr">
+            <div class="qr-card">
+              <div class="qr-box">
+                <!-- SVG QR Code Mockup -->
+                <svg viewBox="0 0 100 100" width="130" height="130" fill="currentColor">
+                  <rect x="0" y="0" width="30" height="30" fill="#128C7E" rx="4"/>
+                  <rect x="5" y="5" width="20" height="20" fill="#ffffff" rx="2"/>
+                  <rect x="9" y="9" width="12" height="12" fill="#128C7E"/>
+                  
+                  <rect x="70" y="0" width="30" height="30" fill="#128C7E" rx="4"/>
+                  <rect x="75" y="5" width="20" height="20" fill="#ffffff" rx="2"/>
+                  <rect x="79" y="9" width="12" height="12" fill="#128C7E"/>
+                  
+                  <rect x="0" y="70" width="30" height="30" fill="#128C7E" rx="4"/>
+                  <rect x="5" y="75" width="20" height="20" fill="#ffffff" rx="2"/>
+                  <rect x="9" y="79" width="12" height="12" fill="#128C7E"/>
+
+                  <rect x="36" y="8" width="8" height="8" fill="#128C7E"/>
+                  <rect x="48" y="8" width="14" height="8" fill="#128C7E"/>
+                  <rect x="36" y="22" width="18" height="8" fill="#128C7E"/>
+                  <rect x="8" y="38" width="14" height="8" fill="#128C7E"/>
+                  <rect x="28" y="38" width="44" height="8" fill="#128C7E"/>
+                  <rect x="78" y="38" width="14" height="8" fill="#128C7E"/>
+                  <rect x="8" y="52" width="24" height="8" fill="#128C7E"/>
+                  <rect x="38" y="52" width="24" height="8" fill="#128C7E"/>
+                  <rect x="68" y="52" width="24" height="8" fill="#128C7E"/>
+                  <rect x="36" y="68" width="14" height="24" fill="#128C7E"/>
+                  <rect x="56" y="68" width="36" height="8" fill="#128C7E"/>
+                  <rect x="56" y="82" width="18" height="10" fill="#128C7E"/>
+                  <rect x="80" y="82" width="12" height="10" fill="#128C7E"/>
+                </svg>
+              </div>
+              <span class="qr-caption">Scan with phone camera to chat instantly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ============================================================
        FOOTER
        ============================================================ -->
   <footer class="footer" id="footer">
-    <div class="footer__inner">
+    <div class="container">
       <div class="footer__top">
-        <div class="footer__brand">
-          <div class="footer__logo">
+        <div class="footer__brand-col">
+          <a href="#" class="footer__logo">
+            <div class="footer__logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
+            </div>
             <span class="footer__logo-text">ayu</span>
-            <span class="footer__logo-dot" aria-hidden="true"></span>
+          </a>
+          <p class="footer__tagline">
+            WhatsApp-first healthcare assistance built for older adults and families. Simple voice explanations, timely medication reminders, and organized medical records.
+          </p>
+          <div class="footer__traction-badges">
+            <span class="f-badge">300+ Users</span>
+            <span class="f-badge">30 Clinics</span>
+            <span class="f-badge">15 Labs</span>
+            <span class="f-badge">22 Pharmacies</span>
           </div>
-          <p class="footer__tagline">Coordinating hospital outpatient flow through WhatsApp. Reducing unnecessary travel, blind waiting times, and repeat trips for outpatient care.</p>
         </div>
 
-        <div class="footer__links-group">
-          <div class="footer__links-col">
-            <h4>Navigate</h4>
-            <ul role="list">
-              <li><a href="#problem">The Burden</a></li>
-              <li><a href="#vision">How it works</a></li>
-              <li><a href="#audience">Who it's for</a></li>
-              <li><a href="#status">Stage</a></li>
-              <li><a href="#waitlist">Waitlist</a></li>
-            </ul>
-          </div>
-          <div class="footer__links-col">
-            <h4>Connect</h4>
-            <ul role="list">
-              <li><a href="mailto:hello@ayuhealth.in">hello@ayuhealth.in</a></li>
-              <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-              <li><a href="#" target="_blank" rel="noopener">Twitter / X</a></li>
-            </ul>
-          </div>
+        <div class="footer__links-col">
+          <h4>Navigation</h4>
+          <ul role="list">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#demo">Product Demo</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#audience">Who It's For</a></li>
+            <li><a href="#emergency">Emergency Use</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links-col">
+          <h4>Partners & Clinical</h4>
+          <ul role="list">
+            <li><a href="mailto:clinics@ayuhealth.in">Clinic Partnerships</a></li>
+            <li><a href="mailto:labs@ayuhealth.in">Diagnostic Labs</a></li>
+            <li><a href="mailto:pharmacy@ayuhealth.in">Pharmacy Network</a></li>
+            <li><a href="mailto:hello@ayuhealth.in">General Inquiries</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links-col">
+          <h4>Direct Connect</h4>
+          <ul role="list">
+            <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp Support</a></li>
+            <li><a href="mailto:hello@ayuhealth.in">hello@ayuhealth.in</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Twitter / X</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="footer__bottom">
-        <p class="footer__copyright">&copy; 2025 Ayu Health. All rights reserved.</p>
-
-        <div class="footer__social">
-          <a href="mailto:hello@ayuhealth.in" class="footer__social-link" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-          </a>
+        <p class="footer__disclaimer">
+          <strong>Medical Disclaimer:</strong> AYU is an informational healthcare navigation assistant and does not provide formal medical diagnoses or emergency triage. Always consult qualified doctors and emergency services for acute medical conditions.
+        </p>
+        <div class="footer__legal">
+          <span>&copy; 2026 AYU Health Technologies. All rights reserved.</span>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Toast notification -->
-  <div class="toast" id="toast" role="alert" aria-live="polite">
-    <span class="toast__icon-wrapper" id="toastIcon" style="display: flex; align-items: center;">
-      <svg class="toast__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-    </span>
-    <span class="toast__text" id="toastText">Success!</span>
+  <!-- ============================================================
+       STICKY MOBILE CTA BAR
+       ============================================================ -->
+  <div class="sticky-mobile-cta" id="stickyMobileCta">
+    <div class="sticky-mobile-cta__inner">
+      <div class="sticky-mobile-cta__info">
+        <span class="sticky-title">AYU on WhatsApp</span>
+        <span class="sticky-sub">Free · Voice & Chat</span>
+      </div>
+      <a href="https://wa.me/919876543210?text=Hi%20AYU%2C%20I%20would%20like%20to%20get%20started" target="_blank" rel="noopener" class="btn btn--whatsapp btn--sm">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Open WhatsApp</span>
+      </a>
+    </div>
   </div>
 
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast__icon-wrapper" id="toastIcon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+    <span class="toast__text" id="toastText">Ready on WhatsApp</span>
+  </div>
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
