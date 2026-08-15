@@ -1,0 +1,123 @@
+.stakeholder {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--ayu-teal-light);
+  color: var(--ayu-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Doctors Icon */
+.icon--doctor {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+[data-theme="dark"] .icon--doctor {
+  background: #172554;
+  color: #60A5FA;
+}
+
+/* Patients Icon */
+.icon--patient {
+  background: var(--ayu-teal-light);
+  color: var(--ayu-teal);
+}
+[data-theme="dark"] .icon--patient {
+  background: var(--ayu-teal-light);
+  color: var(--ayu-green);
+}
+
+/* Pharmacy Icon */
+.icon--pharmacy {
+  background: #FFF7ED;
+  color: #EA580C;
+}
+[data-theme="dark"] .icon--pharmacy {
+  background: #431407;
+  color: #FB923C;
+}
+
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.problem, .solution {
+  background: var(--bg-surface);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.problem h3, .solution h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.problem h3 {
+  color: #EF4444;
+}
+
+.solution h3 {
+  color: var(--ayu-green);
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.value {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-subtle);
+  border-left: 4px solid var(--ayu-teal);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.valueText {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
