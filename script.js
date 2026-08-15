@@ -1,5 +1,5 @@
 /**
- * AYU — WhatsApp-First Healthcare Assistant
+ * AYU — WhatsApp-First Healthcare Platform
  * Interactive Controller: Scenarios, Sandbox, Audio waveforms, Theme Toggle & Smooth Scrolling
  */
 
@@ -225,7 +225,7 @@ function renderScenarioChat(container, messages) {
   messages.forEach(msg => {
     const isOut = msg.type === 'out';
     const bubbleClass = isOut ? 'wa-msg wa-msg--outgoing' : 'wa-msg wa-msg--incoming';
-    const author = isOut ? '' : `<div class="wa-msg__author">AYU Assistant ✓</div>`;
+    const author = isOut ? '' : `<div class="wa-msg__author">AYU Healthcare ✓</div>`;
     
     let mediaHtml = '';
     if (msg.media) {
@@ -335,24 +335,29 @@ function handleVoiceClick(e) {
    ============================================================ */
 const SANDBOX_DATA = {
   cbc: {
-    query: "“What does HbA1c 6.8% mean?”",
+    query: "What does HbA1c 6.8% mean?",
     badge: "Lab Simplifier",
     reply: "<strong>HbA1c 6.8% Breakdown:</strong><br><br>• <strong>Status:</strong> Good control for senior adults with Type 2 Diabetes.<br>• <strong>Safe Target:</strong> Primary doctors generally target 6.5% - 7.0%.<br>• <strong>Next Step:</strong> Continue your morning Metformin 500mg as prescribed and schedule a follow-up test in 3 months.<br><br><span class=\"wa-highlight-tag\">✓ Saved to your lab history</span>"
   },
   bp: {
-    query: "“Remind Dad to take Telmisartan 40mg at 8 PM”",
+    query: "Remind Dad to take Telmisartan 40mg at 8 PM",
     badge: "Caregiver Reminder",
     reply: "✓ <strong>Caregiver Reminder Created!</strong><br><br>• <strong>Patient:</strong> Father (Mr. Rao)<br>• <strong>Medicine:</strong> Telmisartan 40mg<br>• <strong>Schedule:</strong> Daily at 8:00 PM (After dinner)<br>• <strong>Recipients:</strong> Father's WhatsApp + Caregiver sync."
   },
   emergency: {
-    query: "“Show my emergency health card”",
+    query: "Show my emergency health card",
     badge: "Emergency Passport",
     reply: "🚨 <strong>AYU QUICK EMERGENCY CARD:</strong><br><br>• <strong>Patient:</strong> Gopal Rao (Age 68)<br>• <strong>Blood Group:</strong> O+ve<br>• <strong>Allergy:</strong> Penicillin (Severe)<br>• <strong>Active Conditions:</strong> Hypertension, Type 2 Diabetes<br>• <strong>Emergency Contact:</strong> Shaik (+91 98480 12345)<br><br><span class=\"wa-highlight-tag\">✓ Shareable link ready for ER doctors</span>"
   },
   telugu: {
-    query: "“Explain in Telugu voice note”",
+    query: "Explain in Telugu voice note",
     badge: "Telugu Audio Engine",
     reply: "🎙️ <strong>తెలుగులో సందేశం (Telugu Voice Guidance):</strong><br><br>\"మీ డాక్టర్ గారు సూచించిన రక్తపోటు మందును ప్రతిరోజూ ఉదయం అల్పాహారం తర్వాత క్రమం తప్పకుండా తీసుకోవాలి.\"<br><br><em>(Translation: Take your doctor-prescribed blood pressure medicine every morning after breakfast without skipping.)</em>"
+  },
+  provider: {
+    query: "Show today's patient follow-up summary",
+    badge: "Provider Dashboard",
+    reply: "📋 <strong>Today's Follow-Up Summary (Dr. Rao's Clinic):</strong><br><br>• <strong>Total Patients Today:</strong> 18<br>• <strong>Pending Follow-ups:</strong> 5 patients due for lab re-tests<br>• <strong>Medication Adherence:</strong> 14/18 patients confirmed doses today<br>• <strong>Reports Delivered:</strong> 6 lab reports sent with voice summaries<br><br>⚡ <strong>Action Needed:</strong><br>• Mrs. Lakshmi (Age 72) — missed 2 BP doses this week<br>• Mr. Prasad (Age 65) — HbA1c retest overdue by 5 days<br><br><span class=\"wa-highlight-tag\">✓ Follow-up reminders auto-sent to these patients</span>"
   }
 };
 
@@ -381,7 +386,7 @@ function initSandbox() {
           <div class="wa-msg__meta"><span>Just now</span> <span class="wa-ticks">✓✓</span></div>
         </div>
         <div class="wa-msg wa-msg--incoming" style="opacity: 0.75;">
-          <div class="wa-msg__author">AYU Assistant</div>
+          <div class="wa-msg__author">AYU Healthcare</div>
           <p class="wa-msg__text"><em>AYU is typing...</em></p>
         </div>
       `;
@@ -400,7 +405,7 @@ function renderSandboxResponse(container, data) {
       <div class="wa-msg__meta"><span>Just now</span> <span class="wa-ticks">✓✓</span></div>
     </div>
     <div class="wa-msg wa-msg--incoming">
-      <div class="wa-msg__author">AYU Assistant ✓ <span class="wa-lang-tag">${data.badge}</span></div>
+      <div class="wa-msg__author">AYU Healthcare ✓ <span class="wa-lang-tag">${data.badge}</span></div>
       <p class="wa-msg__text">${data.reply}</p>
       <div class="wa-msg__meta"><span>Just now</span></div>
     </div>
