@@ -1,0 +1,100 @@
+.hero {
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 4rem);
+}
+
+.content {
+  max-width: 720px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ayu-teal);
+  background: var(--ayu-teal-light);
+  border: 1px solid var(--ayu-teal-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ayu-green);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.highlight {
+  color: var(--ayu-teal);
+}
+
+[data-theme="dark"] .highlight {
+  color: var(--ayu-green);
+}
+
+.desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.secondaryLink:hover {
+  color: var(--ayu-teal);
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.check svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ayu-green);
+  flex-shrink: 0;
+}

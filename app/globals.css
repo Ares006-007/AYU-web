@@ -1,0 +1,300 @@
+/* ============================================================
+   AYU — Founder Portfolio Site
+   Design System & Global Styles
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand */
+  --ayu-teal: #128C7E;
+  --ayu-teal-dark: #075E54;
+  --ayu-green: #25D366;
+  --ayu-teal-light: #E8F8F5;
+  --ayu-teal-border: #B2DFDB;
+
+  /* Surfaces */
+  --bg-primary: #FAFAFA;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F3F4F6;
+  --bg-muted: #F9FAFB;
+
+  /* Text */
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-tertiary: #6B7280;
+  --text-inverse: #FFFFFF;
+
+  /* Borders */
+  --border-light: #E5E7EB;
+  --border-medium: #D1D5DB;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.09);
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Layout */
+  --max-w: 1120px;
+  --nav-h: 68px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* --- Dark Mode --- */
+[data-theme="dark"] {
+  --ayu-teal: #00A884;
+  --ayu-teal-dark: #005C4B;
+  --ayu-green: #25D366;
+  --ayu-teal-light: #0D2824;
+  --ayu-teal-border: #134D43;
+
+  --bg-primary: #0C1317;
+  --bg-surface: #111B21;
+  --bg-subtle: #182229;
+  --bg-muted: #1A2530;
+
+  --text-primary: #E9EDEF;
+  --text-secondary: #A0ACB3;
+  --text-tertiary: #8696A0;
+  --text-inverse: #111B21;
+
+  --border-light: #222E35;
+  --border-medium: #2A3942;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.section--alt {
+  background: var(--bg-muted);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* --- Typography --- */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ayu-teal);
+  margin-bottom: 0.75rem;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border-radius: var(--radius-full);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--ayu-green);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+}
+
+.btn--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn--outline:hover {
+  border-color: var(--ayu-teal);
+  color: var(--ayu-teal);
+}
+
+.btn--sm {
+  font-size: 0.825rem;
+  padding: 0.55rem 1rem;
+}
+
+.btn--lg {
+  font-size: 1rem;
+  padding: 0.85rem 1.6rem;
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Platform Tags --- */
+.platform-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.platform-tag--dashboard {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.platform-tag--whatsapp {
+  background: var(--ayu-teal-light);
+  color: var(--ayu-teal);
+}
+
+.platform-tag--app {
+  background: #FFF7ED;
+  color: #EA580C;
+}
+
+[data-theme="dark"] .platform-tag--dashboard {
+  background: #172554;
+  color: #60A5FA;
+}
+
+[data-theme="dark"] .platform-tag--whatsapp {
+  background: var(--ayu-teal-light);
+  color: var(--ayu-green);
+}
+
+[data-theme="dark"] .platform-tag--app {
+  background: #431407;
+  color: #FB923C;
+}
+
+/* --- Scroll Reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
