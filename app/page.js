@@ -8,6 +8,7 @@ import ForPharmacies from "./components/ForPharmacies";
 import BiggerPicture from "./components/BiggerPicture";
 import Traction from "./components/Traction";
 import Founder from "./components/Founder";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Traction />
         <Founder />
       </main>
+      <Footer />
     </>
   );
 }
