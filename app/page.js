@@ -5,6 +5,9 @@ import AyuVsAyush from "./components/AyuVsAyush";
 import ForDoctors from "./components/ForDoctors";
 import ForPatients from "./components/ForPatients";
 import ForPharmacies from "./components/ForPharmacies";
+import BiggerPicture from "./components/BiggerPicture";
+import Traction from "./components/Traction";
+import Founder from "./components/Founder";
 
 export default function Home() {
   return (
@@ -17,6 +20,9 @@ export default function Home() {
         <ForDoctors />
         <ForPatients />
         <ForPharmacies />
+        <BiggerPicture />
+        <Traction />
+        <Founder />
       </main>
     </>
   );
