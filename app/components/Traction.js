@@ -8,9 +8,9 @@ export default function Traction() {
           <div className={`${styles.content} reveal`}>
             <span className="eyebrow">Traction</span>
             <h2 className="heading-section">
-              Real usage, not vanity metrics.
+              Real usage,<br />not vanity metrics.
             </h2>
-            <p className={styles.text}>
+            <p className="text-large" style={{ marginTop: '1rem' }}>
               Ayu has completed open beta and is actively deployed with real clinics in India. These numbers come from daily usage, not a demo environment.
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function Traction() {
           <div className={styles.milestone}>
             <div className={styles.milestoneIcon}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
               </svg>
             </div>
             <div>
@@ -61,7 +61,7 @@ export default function Traction() {
           <div className={styles.milestone}>
             <div className={styles.milestoneIcon}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
               </svg>
             </div>
             <div>

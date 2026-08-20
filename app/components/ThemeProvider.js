@@ -9,11 +9,13 @@ export function useTheme() {
 }
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem('ayu-theme');
-    const initial = saved || 'dark';
+    const initial = saved || 'light';
     setTheme(initial);
     document.documentElement.setAttribute('data-theme', initial);
   }, []);
@@ -26,7 +28,7 @@ export default function ThemeProvider({ children }) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, mounted }}>
       {children}
     </ThemeContext.Provider>
   );

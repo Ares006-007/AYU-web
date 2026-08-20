@@ -2,49 +2,40 @@ import styles from './Founder.module.css';
 
 export default function Founder() {
   return (
-    <section className={styles.founder} id="about">
+    <section className={styles.founder} id="founder">
       <div className="container">
-        <div className={styles.layout}>
-          <div className={`${styles.photoCol} reveal`}>
-            <div className={styles.photoFrame}>
-              <div className={styles.monogram}>
-                <span>SA</span>
-              </div>
-            </div>
+        <div className={styles.grid}>
+          <div className={styles.left}>
+            <span className="text-mono">The Architect</span>
           </div>
+          <div className={styles.right}>
+            <div className={styles.letter}>
+              <h2 className="text-h2" style={{ marginBottom: '2rem' }}>
+                Why we built this.
+              </h2>
+              
+              <div className="text-body-lg" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <p>
+                  I built Ayu because I watched patients make three separate trips for what should be a single checkup cycle. One to book, one to consult, one to collect medicines. 
+                </p>
+                <p>
+                  That's broken, and it's fixable. But it won't be fixed by forcing clinics to learn complex new software, or by forcing patients to download yet another app they will use once a year.
+                </p>
+                <p>
+                  It gets fixed by meeting people where they already are. In India, that's WhatsApp. We built an operating system that lives quietly in the background, connecting the tools clinics use with the app patients already love.
+                </p>
+              </div>
 
-          <div className={`${styles.content} reveal`} style={{ transitionDelay: '0.15s' }}>
-            <span className="eyebrow">Founder</span>
-            <h2 className={styles.name}>Shaik Mohammad Ajhaj</h2>
-
-            <div className={styles.bioBlock}>
-              <p className={styles.bio}>
-                I built Ayu because I watched patients make three separate trips for what should be a single checkup cycle — one to book, one to consult, one to collect medicines. That's broken, and it's fixable.
-              </p>
-              <p className={styles.bio}>
-                Before Ayu, I organized hackathons and built communities as the Event Operations Lead for Hack Club India and the H2O Lead for YSWS. I believe in building things that solve real, immediate problems.
-              </p>
-            </div>
-
-            <div className={styles.credentials}>
-              <span className={styles.tag}>Hack Club India</span>
-              <span className={styles.tag}>YSWS — H2O Lead</span>
-              <span className={styles.tag}>Healthcare Tech</span>
-            </div>
-
-            <div className={styles.actions}>
-              <a
-                href="https://my-portfolio-one-zeta-11.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn--outline"
-              >
-                Personal portfolio
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true">
-                  <line x1="7" y1="17" x2="17" y2="7"/>
-                  <polyline points="7 7 17 7 17 17"/>
-                </svg>
-              </a>
+              <div className={styles.signature}>
+                <div className={styles.monogram}>SA</div>
+                <div className={styles.authorMeta}>
+                  <span className={styles.authorName}>Shaik Mohammad Ajhaj</span>
+                  <span className={styles.authorTitle}>Founder, Ayu Health</span>
+                  <a href="https://my-portfolio-one-zeta-11.vercel.app/" target="_blank" rel="noopener noreferrer" className="link-strict" style={{ marginTop: '0.5rem', display: 'inline-block', fontSize: '0.875rem' }}>
+                    View Portfolio
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

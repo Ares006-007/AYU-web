@@ -5,27 +5,18 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.inner}>
-          <div className={styles.brand}>
-            <div className={styles.logoMark}>A</div>
-            <span className={styles.logoText}>ayu</span>
+          <div className={styles.left}>
+            <span className={styles.brand}>AYU</span>
+            <span className={styles.copy}>
+              &copy; {new Date().getFullYear()} Ayu Health. Built in India.
+            </span>
           </div>
 
           <nav className={styles.links} aria-label="Footer navigation">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
+            <a href="#reality" className="link-strict">The Reality</a>
+            <a href="#mechanism" className="link-strict">The Mechanism</a>
+            <a href="#founder" className="link-strict">Founder</a>
           </nav>
-
-          <p className={styles.copy}>
-            &copy; {new Date().getFullYear()} Ayu Health
-          </p>
         </div>
       </div>
     </footer>
