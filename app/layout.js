@@ -1,21 +1,22 @@
 import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
+import ScrollReveal from "./components/ScrollReveal";
 
 export const viewport = {
-  themeColor: "#128C7E",
+  themeColor: "#0d9488",
 };
 
 export const metadata = {
-  title: "AYU — Healthcare on WhatsApp",
+  title: "AYU — Healthcare on WhatsApp | Built by Shaik Mohammad Ajhaj",
   description:
-    "Ayu is a WhatsApp-based healthcare platform. Patients book OPD tokens, get lab reports, and manage medicine reminders. Doctors, clinics, and pharmacies coordinate faster. 300+ users, 67 healthcare partners.",
+    "Ayu connects doctors, patients, and pharmacies through WhatsApp. No new apps, no behavior change. 300+ patients, 67 healthcare partners across India.",
   keywords:
-    "AYU, healthcare, WhatsApp, OPD booking, lab reports, medicine reminders, clinic coordination, pharmacy, India",
+    "AYU, healthcare, WhatsApp, OPD booking, lab reports, clinic coordination, pharmacy, India, healthtech startup",
   authors: [{ name: "Shaik Mohammad Ajhaj" }],
   openGraph: {
     title: "AYU — Healthcare on WhatsApp",
     description:
-      "Ayu connects doctors, patients, and pharmacies through WhatsApp. No new app needed.",
+      "The operating system for India's neighborhood clinics. Built entirely on WhatsApp.",
     type: "website",
     url: "https://ayuhealth.in",
   },
@@ -23,15 +24,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23128C7E'/><path d='M30 50h40M50 30v40' stroke='%23ffffff' stroke-width='10' stroke-linecap='round'/></svg>"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d9488'/><text x='50' y='68' font-family='system-ui' font-size='48' font-weight='700' fill='white' text-anchor='middle'>A</text></svg>"
         />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ScrollReveal />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,0 +1,289 @@
+.howItWorks {
+  padding: clamp(5rem, 10vw, 7rem) 0;
+}
+
+/* --- Header --- */
+.header {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* --- Steps --- */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.stepReversed {
+  direction: rtl;
+}
+
+.stepReversed > * {
+  direction: ltr;
+}
+
+/* --- Step Content --- */
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stepMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+}
+
+.stepPlatform {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ayu-teal);
+  background: var(--ayu-teal-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+.stepBody {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.stepDetail {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* --- Step Visual --- */
+.stepVisual {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+/* --- WhatsApp Chat Mockup --- */
+.mockChat {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.chatBubbleIn,
+.chatBubbleOut {
+  padding: 0.625rem 0.875rem;
+  border-radius: 12px;
+  max-width: 90%;
+  position: relative;
+}
+
+.chatBubbleIn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.chatBubbleOut {
+  background: #064e3b;
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+}
+
+.chatText {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+  display: block;
+}
+
+.chatTime {
+  font-size: 0.5625rem;
+  color: var(--text-tertiary);
+  display: block;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* --- Dashboard Mockup --- */
+.mockDash {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.dashHeader {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+}
+
+.dashDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.dashBody {
+  display: flex;
+  height: 180px;
+}
+
+.dashSidebar {
+  width: 65px;
+  border-right: 1px solid var(--border-subtle);
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebarItem {
+  height: 6px;
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+.dashMain {
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dashRow {
+  height: 8px;
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+.dashCard {
+  height: 32px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+/* --- App Mockup --- */
+.mockApp {
+  width: 160px;
+  border: 2px solid var(--border-default);
+  border-radius: 20px;
+  background: var(--bg-primary);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.appStatusBar {
+  height: 16px;
+  border-radius: 8px;
+  background: var(--bg-subtle);
+}
+
+.appCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.appCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.appAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ayu-teal-light);
+  border: 1px solid var(--ayu-teal);
+  flex-shrink: 0;
+}
+
+.appLine {
+  height: 5px;
+  background: var(--border-subtle);
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+
+.appPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.appPill {
+  font-size: 0.5625rem;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  background: var(--ayu-green-light);
+  color: var(--ayu-green);
+  white-space: nowrap;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .step,
+  .stepReversed {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .stepVisual {
+    min-height: 220px;
+  }
+
+  .stepReversed > * {
+    direction: ltr;
+  }
+}

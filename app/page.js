@@ -1,29 +1,26 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import WhatIsAyu from "./components/WhatIsAyu";
-import AyuVsAyush from "./components/AyuVsAyush";
-import ForDoctors from "./components/ForDoctors";
-import ForPatients from "./components/ForPatients";
-import ForPharmacies from "./components/ForPharmacies";
-import BiggerPicture from "./components/BiggerPicture";
+import HowItWorks from "./components/HowItWorks";
+import Stakeholders from "./components/Stakeholders";
 import Traction from "./components/Traction";
 import Founder from "./components/Founder";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
-        <WhatIsAyu />
-        <AyuVsAyush />
-        <ForDoctors />
-        <ForPatients />
-        <ForPharmacies />
-        <BiggerPicture />
+        <HowItWorks />
+        <Stakeholders />
         <Traction />
         <Founder />
+        <Contact />
       </main>
       <Footer />
     </>

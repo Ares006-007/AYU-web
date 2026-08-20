@@ -1,0 +1,114 @@
+.stakeholders {
+  padding: clamp(5rem, 10vw, 7rem) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* --- Asymmetric Grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+
+.cardFeatured {
+  grid-column: 1 / -1;
+}
+
+/* --- Card --- */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.card:hover {
+  border-color: var(--border-default);
+}
+
+.cardInner {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 1.25rem;
+}
+
+.cardTag svg {
+  color: var(--ayu-teal);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-bottom: 0.875rem;
+}
+
+.cardBody {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* --- Featured Card Extras --- */
+.cardFeatured .cardInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.cardFeatured .cardTag {
+  grid-column: 1 / -1;
+}
+
+.cardFeatured .cardTitle {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.cardHighlight {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--border-default);
+}
+
+.cardHighlight + .cardHighlight {
+  border-left-color: var(--ayu-teal);
+}
+
+.highlightLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardFeatured .cardInner {
+    grid-template-columns: 1fr;
+  }
+}
